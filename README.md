@@ -102,5 +102,5 @@ Assignment scaffold © 2025 **Marek Rychlik** · University of Arizona.  Soluti
 ---
 
 ## 🗺️ Development Roadmap
-A detailed, phase‑by‑phase checklist lives in **[ROADMAP.md](ROADMAP.md)**—open it to track progress or adapt the workflow to your own projects.
+A detailed, phase‑by‑phase checklist lives in **[Roadmap.md](Roadmap.md)**—open it to track progress or adapt the workflow to your own projects.
 
