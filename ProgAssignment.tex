@@ -227,6 +227,72 @@ requirement that your program uses multiple threads.
     \item Discussion of noise differences between the color planes.
 \end{itemize}
 
+\section{High-Performance GPU Batching Strategy}
+
+To improve performance when evaluating the ROF model over a dense grid of parameters
+\((\lambda, \epsilon)\), we exploit the parallel processing capabilities of the GPU. 
+We batch the parameter sweep by copying the input image into a 4D tensor and process 
+all parameter combinations in a single GPU pass.
+
+\subsection{Memory Considerations}
+
+Given an image of size \( H \times W \) (e.g., \(2000 \times 3000\)) and a 
+parameter grid of size \( K \times L \) (e.g., \(20 \times 20\)), the required
+GPU memory for storing the repeated image across the parameter grid is:
+\[
+\text{Memory} = H \cdot W \cdot K \cdot L \cdot \text{bytes per pixel}
+\]
+For a 16-bit image, this is typically \( \sim 12\,\text{MB} \) per copy, 
+so 400 copies will require about \(4.7\,\text{GB}\), well within an 8\,GB 
+GPU's capacity.
+
+\subsection{Parameter Grid Expansion}
+
+Let \( f \in \mathbb{R}^{H \times W} \) be the degraded image. Define:
+\[
+f^{(k,l)} = f, \quad \text{for all } (k,l) \in \{1,\ldots,K\} \times \{1,\ldots,L\}
+\]
+and stack these into a 4D array:
+\[
+\mathbf{F} \in \mathbb{R}^{H \times W \times K \times L}
+\]
+The parameters \( \lambda_{k} \), \( \epsilon_{l} \) are similarly broadcast 
+to tensors \( \Lambda \) and \( \mathcal{E} \) of shape \(1 \times 1 \times K \times L\).
+
+\subsection{Vectorized ROF Iteration}
+
+For each iteration \( t \), compute:
+\begin{align*}
+u_x^{(k,l)} &= u^{(k,l)}_{i,j+1} - u^{(k,l)}_{i,j}, \\
+u_y^{(k,l)} &= u^{(k,l)}_{i+1,j} - u^{(k,l)}_{i,j}, \\
+|\nabla u|^{(k,l)} &= \sqrt{ \epsilon_l^2 + (u_x^{(k,l)})^2 + (u_y^{(k,l)})^2 }, \\
+p_x^{(k,l)} &= u_x^{(k,l)} / |\nabla u|^{(k,l)}, \quad
+p_y^{(k,l)} = u_y^{(k,l)} / |\nabla u|^{(k,l)}, \\
+\text{div}(p)^{(k,l)} &= \text{backward difference of } p_x^{(k,l)} \text{ and } p_y^{(k,l)}, \\
+u^{(k,l)}_{t+1} &= f - \lambda_k \cdot \text{div}(p)^{(k,l)}.
+\end{align*}
+
+All operations are performed in parallel on the GPU using MATLAB's \texttt{gpuArray}
+broadcasting semantics.
+
+\subsection{MSD Computation}
+
+After convergence, compute the mean square difference (MSD) directly on the GPU:
+\[
+\text{MSD}^{(k,l)} = \sqrt{ \frac{1}{HW} \sum_{i,j} (u_{i,j}^{(k,l)} - f_{i,j})^2 }
+\]
+
+\subsection{Benefits}
+
+\begin{itemize}
+    \item Reduces kernel launch overhead and memory transfers.
+    \item Amortizes the cost of reading and storing \(f\) over many parameter evaluations.
+    \item Enables full vectorization of the ROF update loop.
+    \item GPU memory bandwidth is used more effectively.
+\end{itemize}
+
+
+
 \end{document}
 
 %%% Local Variables:
