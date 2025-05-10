@@ -80,16 +80,53 @@ fprintf('Saved results to  rof_results_singlepool.mat\n');
 delete(pool);
 fprintf('All done.\n');
 
-%% --------------------------------------------------------------------
-%  Helper – GPU version (locks one device, returns K×L MSD)
-% --------------------------------------------------------------------
+% ---------------------------------------------------------------------
+%   gpu_plane_sweep  (safe‑memory version)
+%   • processes the (λ,ε) grid in blocks to stay under GPU limits
+% ---------------------------------------------------------------------
 function msd = gpu_plane_sweep(f, lambda, epsilon, nIter, dt)
-    gpuDevice;                        % lock the worker's assigned GPU
-    f = gpuArray(single(f));
-    u = smooth_image_rof(f, lambda, epsilon, nIter, dt);
-    err2 = (u - f).^2;
-    msd = gather( sqrt( mean(mean(err2,1), 2) ) );  % K×L
+
+    g  = gpuDevice;                       % lock & query this GPU
+    freeMem = g.AvailableMemory;          % bytes
+
+    f = gpuArray(single(f));              % H×W  (≈ 24 MB single)
+
+    % ---- estimate per‑pixel bytes we’ll allocate in the solver ----
+    H = size(f,1);  W = size(f,2);
+    bytesPerImage = 4 * H * W;            % u, ux, uy, gmag  (single)
+    safetyFactor  = 1.2;                  % head‑room for other arrays
+    bytesAvail    = freeMem / safetyFactor;
+
+    % maximum #parameter‑pairs we can fit at once
+    maxPairs = floor( bytesAvail / bytesPerImage );
+
+    % choose a block size (powers of two keep things neat)
+    blk   = max(2, 2^floor(log2(maxPairs)));     % e.g. 8,16,…
+
+    % pre‑allocate final MSD surface (K×L)
+    msd = zeros(numel(lambda), numel(epsilon), 'single','gpuArray');
+
+    % iterate over blocks of (λ,ε)
+    for k0 = 1:blk:numel(lambda)
+        kIdx = k0 : min(k0+blk-1, numel(lambda));
+        lamSub = lambda(kIdx);
+
+        for l0 = 1:blk:numel(epsilon)
+            lIdx = l0 : min(l0+blk-1, numel(epsilon));
+            epsSub = epsilon(lIdx);
+
+            % ---- solve ROF on this sub‑grid ----
+            u = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
+
+            % ---- MSD for the sub‑grid ----
+            err2 = (u - f).^2;
+            msd(kIdx,lIdx) = sqrt( mean(mean(err2,1), 2) );
+        end
+    end
+
+    msd = gather(msd);                    % back to host RAM
 end
+
 
 %% --------------------------------------------------------------------
 %  Helper – CPU version (plain calculate_msd)
