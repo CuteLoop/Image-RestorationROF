@@ -1,45 +1,87 @@
+% ---------------------------------------------------------------------
+%  gpu_plane_sweep.m  –  Memory‑adaptive ROF sweep for one colour plane
+%                       (runs entirely on one GPU)
+% ---------------------------------------------------------------------
 function msd = gpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
-%GPU_PLANE_SWEEP  –  Explicit ROF TV sweep on GPU with batching
+% fHost    : H×W image on host (uint16 | single | double)
+% lambda   : vector of λ values  (double)
+% epsilon  : vector of ε values  (double)
+% nIter,dt : solver controls
 %
-%   fHost : H×W noisy plane (uint16 or single)
-%   lambda, epsilon : scalars (or vectors if you later broadcast)
-%   nIter  : iterations
-%   dt     : time step  (e.g. 0.25)
+% Returns   msd(K×L)  on host.
 
-% ---- move to GPU and harmonise types ---------------------------------
-f      = gpuArray(single(fHost));      % single gpuArray
-lambda = cast(lambda,  'like', f);     % ensure same class
-epsilon= cast(epsilon, 'like', f);
+% ---------- 1.  Lock GPU & query memory ------------------------------
+g        = gpuDevice;                           % reserve this card
+elemCap  = 2^31 - 1;                            % per‑array element limit
+oneVarB  = 0.8 * g.TotalMemory;                 % per‑array byte cap
+freeB    = g.AvailableMemory;                   % current free bytes
 
-[H,W,~] = size(f);
-u = f;                                 % initial guess
-maxBatch = 16;                         % tune to fit VRAM
-T = 1;                                 % time dimension in your version
-msd = zeros(H,W,T,'like',f);
+% ---------- 2.  Move plane to device; unify data types ---------------
+f   = gpuArray(single(fHost));                  % use single precision
+cls = classUnderlying(f);                       % 'single'
 
-for it = 1:nIter
-    for batch = 1:ceil(T/maxBatch)
-        idx = (batch-1)*maxBatch + (1:maxBatch);
-        idx = idx(idx<=T);
+lambda  = cast(lambda,  cls);                   % cast to single
+epsilon = cast(epsilon, cls);
 
-        u_batch = u(:,:,idx);
+[H,W]   = size(f);
+bytesPlane = 4 * H * W;                         % f itself (single)
 
-        ux = diff(u_batch,1,2);  ux = cat(2,ux,zeros(H,1,'like',ux));
-        uy = diff(u_batch,1,1);  uy = cat(1,uy,zeros(1,W,'like',uy));
+K = numel(lambda);   L = numel(epsilon);
+msd = zeros(K, L, 'single');                    % final surface (host)
 
-        grad_norm = sqrt(ux.^2 + uy.^2 + epsilon.^2);
+% Each solver tile allocates 7 working arrays (u,ux,uy,gmag,px,py,div)
+overhead = 7;
 
-        px = ux ./ grad_norm;
-        py = uy ./ grad_norm;
+% ---------- 3.  Choose tile size blk × blk ---------------------------
+blk = 32;                                       % start aggressive
+while blk > 1
+    elems  = double(H) * W * blk * blk;         % elements in one 4‑D image
+    bytes4D= elems * 4;                         % bytes of that image
+    bytesTotal = overhead * bytes4D + bytesPlane;
+    if elems      <= elemCap  && ...
+       bytes4D    <  oneVarB  && ...
+       bytesTotal <  0.8 * freeB
+        break                                   % safe block found
+    end
+    blk = blk / 2;                              % otherwise shrink
+end
+if blk < 1, blk = 1; end
 
-        divx = [px(:,1,:) , px(:,2:end,:) - px(:,1:end-1,:)];
-        divy = [py(1,:,:) ; py(2:end,:,:) - py(1:end-1,:,:)];
-        div  = divx + divy;
+fprintf('[GPU%u] free %.1f GB  chosen blk %d×%d  '
+        'working‑set %.2f GB\n',...
+        g.Index, freeB/2^30, blk, blk,...
+        (overhead*double(H)*W*blk*blk*4 + bytesPlane)/2^30);
 
-        u_batch = u_batch + dt * (div - lambda.*(u_batch - f(:,:,idx)));
+% ---------- 4.  Loop over λ × ε tiles --------------------------------
+for k0 = 1:blk:K
+    kIdx   = k0 : min(k0+blk-1, K);
+    lamSub = reshape(lambda(kIdx), 1,1,1,[]);   % 1×1×1×Bλ  (broadcast)
 
-        u(:,:,idx) = u_batch;
+    for l0 = 1:blk:L
+        lIdx   = l0 : min(l0+blk-1, L);
+        epsSub = reshape(epsilon(lIdx), 1,1,1,[]); % 1×1×1×Bε
+
+        % ---------- DEBUG header -------------------------------------
+        fprintf('[GPU%u] tile λ[%d:%d] ε[%d:%d]  '
+                'f:%s  λ:%s  ε:%s\n', ...
+               g.Index, kIdx(1),kIdx(end), lIdx(1),lIdx(end), ...
+               mat2str(size(f)), mat2str(size(lamSub)), mat2str(size(epsSub)));
+
+        % ---------- Vectorised solver call ---------------------------
+        uTile = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
+
+        % ---------- Shape check --------------------------------------
+        expectSize = [H, W, numel(kIdx), numel(lIdx)];
+        assert(isequal(size(uTile), expectSize), ...
+              'uTile shape mismatch: got %s expected %s', ...
+              mat2str(size(uTile)), mat2str(expectSize));
+
+        % ---------- MSD accumulation --------------------------------
+        err2 = (uTile - f).^2;
+        msd(kIdx,lIdx) = gather( sqrt( mean(mean(err2,1),2) ) );
+
+        % ---------- Free tile buffers -------------------------------
+        clear uTile err2
     end
 end
-msd = u;    % or compute √MSE here
 end
