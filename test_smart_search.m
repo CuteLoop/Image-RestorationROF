@@ -24,8 +24,12 @@ res_seq = smart_grid_search(Iplanar(:,:,1), ...
             grid.lambdaRange, grid.epsilonRange, ...
             grid.coarseN, grid.refineN, grid.halfDecades, ...
             solver.nIter, solver.dt);
+
 t_seq = toc;
 fprintf('  time = %.2f s\n', t_seq);
+
+delete(gcp('nocreate'));   % <‑‑‑ add this line
+
 
 %% ----------------------------------------------------------- 2) parallel CPU
 numW = feature('numCores');
