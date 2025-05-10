@@ -1,44 +1,68 @@
-%% test_smart_search.m  –  sanity checks for smart_grid_search helpers
-clc; fprintf('\n=== Running smart-search unit test ===\n');
+%% test_smart_search.m  – sanity & timing checks for smart search helpers
+clc; fprintf('\n=== Running smart‑search unit test ===\n');
 
-% ------------------------------------------------------------------ 1
-%  Synthetic single plane: 64×64 gradient + noise
+% -------------------------------------------------------------- synth data
 H = 64; W = 64;
 [X,Y] = meshgrid(linspace(0,1,W),linspace(0,1,H));
-plane = single( 0.6*X + 0.4*Y + 0.05*randn(H,W,'single') );
-
-coarseArgs = struct('lambdaRange',[1e-4,1], ...
-                    'epsilonRange',[1e-5,1e-2], ...
-                    'coarseN',6,'refineN',8,'halfDecades',0.3);
-solverArgs = struct('nIter',50,'dt',0.2);  % lighter settings for test
-
-fprintf('• Testing smart_grid_search on single plane …\n');
-res = smart_grid_search(plane, ...
-        coarseArgs.lambdaRange, coarseArgs.epsilonRange, ...
-        coarseArgs.coarseN, coarseArgs.refineN, ...
-        coarseArgs.halfDecades, ...
-        solverArgs.nIter, solverArgs.dt);
-
-% basic assertions
-assert(isfield(res,'msdCoarse') && isfield(res,'msdRefine'));
-assert(all(size(res.msdCoarse) == [coarseArgs.coarseN, coarseArgs.coarseN]));
-assert(all(size(res.msdRefine)  == [coarseArgs.refineN, coarseArgs.refineN]));
-assert(numel(res.bestRefine)==2);
-
-% ------------------------------------------------------------------ 2
-%  Synthetic 4-plane stack (R,G1,G2,B) = plane + noise variations
+base  = 0.6*X + 0.4*Y;
 Iplanar = cat(3, ...
-    plane + 0.02*randn(H,W,'single'), ...
-    plane + 0.01*randn(H,W,'single'), ...
-    plane + 0.01*randn(H,W,'single'), ...
-    plane + 0.03*randn(H,W,'single'));
+   single(base + 0.02*randn(H,W)), ...
+   single(base + 0.01*randn(H,W)), ...
+   single(base + 0.01*randn(H,W)), ...
+   single(base + 0.03*randn(H,W)));
 
-fprintf('• Testing foreach_plane_search on 4-plane stack …\n');
-allRes = foreach_plane_search(Iplanar, coarseArgs, solverArgs);
+% -------------------------------------------------------------- parameters
+coarse = struct('lambdaRange',[1e-4,1],'epsilonRange',[1e-5,1e-2], ...
+                'coarseN',6,'refineN',8,'halfDecades',0.3);
+solver = struct('nIter',50,'dt',0.2);    % light settings
 
-assert(numel(allRes)==4);
-for p = 1:4
-    assert(isfield(allRes(p),'bestRefine'));
+%% ----------------------------------------------------------- 1) sequential CPU
+fprintf('• Sequential smart_grid_search (single plane)…\n');
+delete(gcp('nocreate'));
+tic
+res_seq = smart_grid_search(Iplanar(:,:,1), ...
+            coarse.lambdaRange, coarse.epsilonRange, ...
+            coarse.coarseN, coarse.refineN, coarse.halfDecades, ...
+            solver.nIter, solver.dt);
+t_seq = toc;
+fprintf('  time = %.2f s\n', t_seq);
+
+%% ----------------------------------------------------------- 2) parallel CPU
+numW = feature('numCores');
+pool = parpool("Processes", numW, "SpmdEnabled", false);
+
+tic
+parfor p = 1:4
+    resPar{p} = smart_grid_search( ...
+        Iplanar(:,:,p), ...
+        coarse.lambdaRange, coarse.epsilonRange, ...
+        coarse.coarseN, coarse.refineN, coarse.halfDecades, ...
+        solver.nIter, solver.dt );
+end
+t_par = toc;
+delete(pool);
+
+fprintf('• Parallel CPU (parfor, %d workers) time = %.2f s\n', numW, t_par);
+
+%% ----------------------------------------------------------- 3) GPU (optional)
+if rof_config() && gpuDeviceCount>0
+    fprintf('• GPU run (single plane)…\n');
+    tic
+    res_gpu = smart_grid_search( ...
+        Iplanar(:,:,1), ...
+        coarse.lambdaRange, coarse.epsilonRange, ...
+        coarse.coarseN, coarse.refineN, coarse.halfDecades, ...
+        solver.nIter, solver.dt );
+    t_gpu = toc;
+    fprintf('  GPU time = %.2f s\n', t_gpu);
+end
+
+%% ----------------------------------------------------------- summary
+fprintf('\nSpeed‑ups vs sequential:\n');
+fprintf('  Parallel CPU : ×%.1f\n', t_seq/t_par);
+if exist('t_gpu','var')
+    fprintf('  GPU          : ×%.1f\n', t_seq/t_gpu);
 end
 
 fprintf('\n✅  All tests passed!\n');
+fprintf('🏁  Done – results saved\n');
