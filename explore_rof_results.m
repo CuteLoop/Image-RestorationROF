@@ -14,8 +14,17 @@ function explore_rof_results(matFile, showImages)
 %   Figures with MSD surfaces, bar chart, and (optionally) images.
 %
 % ---------------------------------------------------------------------
+files = dir('rof_results*.mat');
+if nargin==0
+    if isempty(files), error('No rof_results*.mat file found.'); end
+    [~,idx] = max([files.datenum]);           % newest timestamp
+    matFile = files(idx).name;
+    fprintf('✔ Using latest results file: %s\n', matFile);
+elseif nargin>=1
+    matFile = varargin{1};
+end
+showImages = (nargin>=2) && varargin{2};
 
-if nargin<2, showImages = false; end
 
 S = load(matFile);           % expects lambda, epsilon, msdCube
 lambda  = S.lambda(:);
