@@ -133,44 +133,65 @@ end
 
 % ---------------------------------------------------------------------
 %  cpu_plane_sweep  –  memory‑adaptive ROF sweep on ONE colour plane
+%                      (robust free‑RAM detection)
 % ---------------------------------------------------------------------
 function msd = cpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
 
-    % ------------------------------------------------------------------
-    % 1.  Query available system memory (works on Windows & Linux)
-    % ------------------------------------------------------------------
-    try                 % Windows & recent MATLAB versions
-        m = memory;
-        freeBytes = m.MemAvailableAllArrays;
-    catch
-        % On Linux without memory(), fall back to feature('memstats')
-        s = feature('memstats');
-        freeBytes = s.PhysicalFree;
-    end
-    % Keep a safety margin so we don't exhaust RAM & get swapped out
-    freeBytes = 0.8 * double(freeBytes);
+    % -------------------------------------------------------------- 1 --
+    %  Free‑RAM query with three fallbacks
+    % --------------------------------------------------------------
+    freeBytes = NaN;
 
-    % ------------------------------------------------------------------
-    % 2.  Estimate per‑image memory footprint (single precision)
-    % ------------------------------------------------------------------
-    f = single(fHost);                 % work in single on CPU too
+    % 1A.  First choice: memory() (Windows & many Linux w/ Java)
+    if exist('memory','file') == 2
+        try
+            m = memory;                         % struct
+            freeBytes = m.MemAvailableAllArrays;
+        catch
+        end
+    end
+
+    % 1B.  Second choice: /proc/meminfo (Linux)
+    if isnan(freeBytes) && isunix
+        try
+            fid = fopen('/proc/meminfo','r');
+            txt = textscan(fid,'%s%s%s');
+            fclose(fid);
+            idx = find(strcmp(txt{1},'MemAvailable:'));
+            if ~isempty(idx)
+                freeBytes = str2double(txt{2}{idx}) * 1024;  % kB → B
+            end
+        catch
+        end
+    end
+
+    % 1C.  Last resort: assume 4 GB free
+    if isnan(freeBytes) || freeBytes<=0
+        warning('Could not query free host RAM – assuming 4 GB.');
+        freeBytes = 4 * 2^30;
+    end
+
+    freeBytes = 0.8 * double(freeBytes);     % keep 20 % safety margin
+
+    % -------------------------------------------------------------- 2 --
+    %  Memory model: how many (λ,ε) pairs fit simultaneously?
+    % --------------------------------------------------------------
+    f = single(fHost);               % work in single precision
     [H,W] = size(f);
 
-    % smooth_image_rof allocates: u, ux, uy, gmag → 4 images
-    bytesPerImage = 4 * H * W * 4 * 1.10;   % 1.1× overhead
+    bytesPerImage = 4 * H * W * 4 * 1.10;   % u,ux,uy,gmag +10 %
 
-    % how many parameter pairs can we hold at once?
     maxPairs = floor( (freeBytes - bytesPerImage) / bytesPerImage );
-    blk      = max(1, 2^floor(log2(maxPairs)));   % at least 1
+    blk      = max(1, 2^floor(log2(maxPairs)));      % ≥1, power‑of‑two
 
-    fprintf('[CPU]  Free RAM ≈ %.1f GB block size %d×%d pairs\n', ...
+    fprintf('[CPU]  Free ≈ %.1f GB → block %d×%d pairs\n',...
             freeBytes/2^30, blk, blk);
 
-    % ------------------------------------------------------------------
-    % 3.  Iterate over the grid in blk×blk chunks
-    % ------------------------------------------------------------------
+    % -------------------------------------------------------------- 3 --
+    %  Block‑wise loop over grid
+    % --------------------------------------------------------------
     K = numel(lambda);   L = numel(epsilon);
-    msd = zeros(K, L, 'single');        % final MSD surface
+    msd = zeros(K, L, 'single');
 
     for k0 = 1:blk:K
         kIdx = k0 : min(k0+blk-1, K);
@@ -180,10 +201,8 @@ function msd = cpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
             lIdx  = l0 : min(l0+blk-1, L);
             epsSub = epsilon(lIdx);
 
-            % --- solve ROF for this sub‑grid (vectorised) -----------
             uSub = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
 
-            % --- accumulate MSD -------------------------------------
             err2 = (uSub - f).^2;
             msd(kIdx,lIdx) = sqrt( mean(mean(err2,1), 2) );
         end
