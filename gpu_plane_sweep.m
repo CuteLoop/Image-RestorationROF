@@ -1,51 +1,45 @@
-function msd = gpu_plane_sweep(f, lambda, epsilon, nIter, dt)
-%GPU_PLANE_SWEEP   Rudin–Osher–Fatemi TV denoising via plane‐sweep on GPU
-%   f       – noisy image stack (H×W×T) on GPU
-%   lambda  – regularization weight
-%   epsilon – small constant to avoid division by zero
-%   nIter   – number of outer iterations
-%   dt      – time‐step size
+function msd = gpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
+%GPU_PLANE_SWEEP  –  Explicit ROF TV sweep on GPU with batching
+%
+%   fHost : H×W noisy plane (uint16 or single)
+%   lambda, epsilon : scalars (or vectors if you later broadcast)
+%   nIter  : iterations
+%   dt     : time step  (e.g. 0.25)
 
-% Preallocate
-[H,W,T] = size(f);
-u = f;                             % initialize
+% ---- move to GPU and harmonise types ---------------------------------
+f      = gpuArray(single(fHost));      % single gpuArray
+lambda = cast(lambda,  'like', f);     % ensure same class
+epsilon= cast(epsilon, 'like', f);
+
+[H,W,~] = size(f);
+u = f;                                 % initial guess
+maxBatch = 16;                         % tune to fit VRAM
+T = 1;                                 % time dimension in your version
 msd = zeros(H,W,T,'like',f);
 
-% Decide batch size: process a subset of frames at a time to fit GPU memory
-maxBatch = 16;                     % e.g. up to 16 time‑slices per batch
-nBatches = ceil(T/maxBatch);
-
 for it = 1:nIter
-    % Sweep over each batch of time‐slices
-    for b = 1:nBatches
-        idx = (b-1)*maxBatch + (1:maxBatch);
-        idx = idx(idx<=T);         % clip last batch
+    for batch = 1:ceil(T/maxBatch)
+        idx = (batch-1)*maxBatch + (1:maxBatch);
+        idx = idx(idx<=T);
 
-        % Extract batch, keep it on GPU
         u_batch = u(:,:,idx);
 
-        % Compute finite differences along x and y in one go
-        ux = diff(u_batch,1,2);                     % size H×(W‑1)×Nb
-        uy = diff(u_batch,1,1);                     % size (H‑1)×W×Nb
-        % Pad to original size
-        ux = cat(2, ux, zeros(H,1,numel(idx),'like',ux));
-        uy = cat(1, uy, zeros(1,W,numel(idx),'like',uy));
+        ux = diff(u_batch,1,2);  ux = cat(2,ux,zeros(H,1,'like',ux));
+        uy = diff(u_batch,1,1);  uy = cat(1,uy,zeros(1,W,'like',uy));
 
-        % Gradient magnitude
-        grad_norm = sqrt(ux.^2 + uy.^2 + epsilon^2);
+        grad_norm = sqrt(ux.^2 + uy.^2 + epsilon.^2);
 
-        % Divergence (vectorized): compute backward differences
-        div_x = [ux(:,1,:) , ux(:,2:end,:) - ux(:,1:end-1,:)];
-        div_y = [uy(1,:,:) ; uy(2:end,:,:) - uy(1:end-1,:)];
-        div = div_x + div_y;   
+        px = ux ./ grad_norm;
+        py = uy ./ grad_norm;
 
-        % TV update: one explicit gradient‐descent step
-        u_batch = u_batch + dt * (div - lambda*(u_batch - f(:,:,idx)));
+        divx = [px(:,1,:) , px(:,2:end,:) - px(:,1:end-1,:)];
+        divy = [py(1,:,:) ; py(2:end,:,:) - py(1:end-1,:,:)];
+        div  = divx + divy;
 
-        % Write back
+        u_batch = u_batch + dt * (div - lambda.*(u_batch - f(:,:,idx)));
+
         u(:,:,idx) = u_batch;
     end
 end
-
-msd = u;
+msd = u;    % or compute √MSE here
 end
