@@ -1,73 +1,71 @@
 function u = smooth_image_rof(f, lambda, epsilon, nIter, dt)
-%SMOOTH_IMAGE_ROF  Regularised ROF TV‑denoise (explicit scheme, Neumann BCs).
-%
+%SMOOTH_IMAGE_ROF  Regularised ROF TV denoising with Neumann BCs
 %   u = smooth_image_rof(f, lambda, epsilon [, nIter, dt])
 %
-%   INPUT
-%     f        : H×W array (double|single) – degraded image plane
-%     lambda   : 1×K or K×1 vector ( > 0 )
-%     epsilon  : 1×L or L×1 vector ( > 0 )
-%     nIter    : # iterations           (default 300)
-%     dt       : time step Δt           (default 0.25, CFL‑safe for h=1)
-%
-%   OUTPUT
-%     u        : H×W×K×L array – denoised images for every (λk, εl)
-%
-%   • Vectorised over both parameters (no for‑loops on K, L).
-%   • Homogeneous Neumann BCs enforced via edge‑replication.
-%   • Runs on GPU transparently if one is available.
+%   f        : H×W degraded image (single | double | gpuArray)
+%   lambda   : vector length K   ( > 0 )
+%   epsilon  : vector length L   ( > 0 )
+%   nIter    : iterations per pair      (default 300)
+%   dt       : time step Δt             (default 0.25)
+%   -----------------------------------------------
+%   Returns  u  of size  H×W×K×L   on host memory.
 
-% ---------------- defaults ----------------
-if nargin < 4, nIter = 300; end
-if nargin < 5, dt    = 0.25; end    % h == 1 pixel
+    if nargin < 4, nIter = 300; end
+    if nargin < 5, dt    = 0.25; end
 
-lambda  = lambda(:);                % ensure column
-epsilon = epsilon(:);               % ensure column
+    if isa(f,'gpuArray')
+        useGPU = true;
+    else
+        useGPU = false;
+        f = single(f);                         % work in single on CPU
+    end
 
-K = numel(lambda);
-L = numel(epsilon);
+    lambda  = lambda(:);
+    epsilon = epsilon(:);
+    K = numel(lambda);  L = numel(epsilon);
 
-% -------------- broadcast 4‑D stacks -------------
-f      = single(f);                 % work in single to save RAM
-f      = repmat(f, 1, 1, K, L);     % H×W×K×L
-u      = f;                         % initial guess = data
+    % ------- parfor writes into a linear cell array -------------------
+    uCell = cell(K*L,1);
 
-% parameter grids shaped 1×1×K×L  (implicit expansion friendly)
-Lambda = reshape(lambda, 1, 1, K, 1);
-EpsTV  = reshape(epsilon,1, 1, 1, L);
+    parfor idx = 1:K*L                  %#ok<PFUNK>
+        [k,l] = ind2sub([K,L], idx);
+        lam   = lambda(k);
+        eps2  = epsilon(l)^2;
 
-% -------------- push to GPU if present -----------
-try
-    g = gpuDevice;                  %#ok<NASGU>
-    f = gpuArray(f); u = f;         % (re‑assign keeps shape)
-    Lambda = gpuArray(Lambda);
-    EpsTV  = gpuArray(EpsTV);
-catch
-    % no compatible GPU – run on CPU silently
-end
+        uk = f;                          % initial guess = data
+        for it = 1:nIter
+            % Symmetric pad for Neumann BCs (adds 1‑pixel border)
+            up = padarray(uk,[1 1],'symmetric');
 
-% derivative kernels (forward diff)
-kx = [-1 1];                        % ∂/∂x forward
-ky = [-1; 1];                       % ∂/∂y forward
+            % Forward gradients
+            ux = up(2:end-1,3:end) - up(2:end-1,2:end-1);
+            uy = up(3:end,2:end-1) - up(2:end-1,2:end-1);
 
-for it = 1:nIter
-    % forward differences (replicate bc)
-    ux = imfilter(u, kx, 'replicate', 'same');
-    uy = imfilter(u, ky, 'replicate', 'same');
+            gmag = sqrt(eps2 + ux.^2 + uy.^2);
 
-    gmag = sqrt( EpsTV.^2 + ux.^2 + uy.^2 );
+            px = ux ./ gmag;
+            py = uy ./ gmag;
 
-    px = ux ./ gmag;
-    py = uy ./ gmag;
+            % Divergence with replicate edge (backward diff)
+            divx = [px(:,1), px(:,2:end)-px(:,1:end-1)];
+            divy = [py(1,:); py(2:end,:)-py(1:end-1,:)];
+            div  = divx + divy;
 
-    % divergence (backward diff)
-    divpx = imfilter(px, -fliplr(kx), 'replicate', 'same');
-    divpy = imfilter(py, -flipud(ky), 'replicate', 'same');
-    divp  = divpx + divpy;          % h = 1
+            unew = f - lam * dt * div;
 
-    % explicit Euler update
-    u = u + dt * ( divp - (u - f) ./ Lambda );
-end
+            if norm(unew(:)-uk(:)) / norm(uk(:)) < 1e-4
+                uk = unew;  break;
+            end
+            uk = unew;
+        end
+        uCell{idx} = gather(uk);         % ensure host copy
+    end
 
-u = gather(u);                      % return to host if on GPU
+    % ------- stitch cells into 4‑D array ------------------------------
+    [H,W] = size(f);
+    u = zeros(H,W,K,L,'single');
+    for idx = 1:K*L
+        [k,l] = ind2sub([K,L], idx);
+        u(:,:,k,l) = uCell{idx};
+    end
 end

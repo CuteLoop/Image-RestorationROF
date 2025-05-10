@@ -1,51 +1,42 @@
-% ---------------------------------------------------------------------
-%  gpu_plane_sweep  –  memory‑adaptive ROF sweep on ONE colour plane
-% ---------------------------------------------------------------------
 function msd = gpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
+% One colour plane, full λ×ε grid, auto‑shrinks block to fit GPU RAM.
 
-    %-- lock the GPU assigned to this worker and query memory -----------
-    g = gpuDevice;
-    freeBytes = g.AvailableMemory;            % what CUDA reports
-    maxBytesOneVar = 0.8 * g.TotalMemory;     % MATLAB guard (≈ 80 %)
+g       = gpuDevice;
+elemCap = 2^31 - 1;                       % MATLAB hard element limit
+capB    = 0.8 * g.TotalMemory;            % 80 % per‑array cap
+freeB   = g.AvailableMemory;
 
-    fprintf('[GPU%d]  Free: %.1f GB   MaxPerVar: %.1f GB\n', ...
-            g.Index, freeBytes/2^30, maxBytesOneVar/2^30);
+f = gpuArray(single(fHost));
+[H,W] = size(f);
 
-    %-- move the current plane to device (single precision) -------------
-    f = gpuArray(single(fHost));
-    [H,W] = size(f);
+bytesPerImg = 4*H*W*4*1.1;                % u,ux,uy,gmag (+10%)
+K = numel(lambda);  L = numel(epsilon);
+msd = zeros(K,L,'single');
 
-    %-- bytes required for one additional image in smooth_image_rof -----
-    %   (u, ux, uy, gmag  → 4 arrays; plus a small overhead factor)
-    bytesPerImage = 4 * H * W * 4 * 1.10;    % (~1.1 safety)
+% choose blk so that H*W*blk² elements & bytes safe
+blk = 32;
+while blk > 1
+    elems = double(H)*W*blk*blk;
+    bytes = elems*4;
+    if elems<=elemCap && bytes<capB && bytes*2<freeB
+        break
+    end
+    blk = blk/2;
+end
+if blk<1, blk=1; end
+fprintf('[GPU%u] blk %d×%d (%.2f GB array)\n',g.Index,blk,blk, ...
+        double(H)*W*blk*blk*4/2^30 );
 
-    %-- choose #pairs that can fit under both limits --------------------
-    avail      = min(freeBytes, maxBytesOneVar) - numel(f)*4;  % leave f in RAM
-    maxPairs   = floor( avail / bytesPerImage );
-    blk        = max(1, 2^floor(log2(maxPairs)));  % power of two, at least 1
+for k0 = 1:blk:K
+    kIdx = k0 : min(k0+blk-1, K);
+    lamSub = lambda(kIdx);
+    for l0 = 1:blk:L
+        lIdx  = l0 : min(l0+blk-1, L);
+        epsSub = epsilon(lIdx);
 
-    fprintf('[GPU%d]  Processing %d×%d grid in blocks of %d×%d pairs\n', ...
-            g.Index, numel(lambda), numel(epsilon), blk, blk);
-
-    %-- container for final MSD surface (host side) ---------------------
-    msd = zeros(numel(lambda), numel(epsilon), 'single');
-
-    %-- iterate over blocks ---------------------------------------------
-    for k0 = 1:blk:numel(lambda)
-        kIdx = k0 : min(k0+blk-1, numel(lambda));
-        lamSub = lambda(kIdx);
-
-        for l0 = 1:blk:numel(epsilon)
-            lIdx  = l0 : min(l0+blk-1, numel(epsilon));
-            epsSub = epsilon(lIdx);
-
-            % --- ROF solver for this sub‑grid (vectorised inside) -----
-            uSub = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
-
-            % --- accumulate MSD for the sub‑grid ----------------------
-            err2 = (uSub - f).^2;
-            msd(kIdx,lIdx) = gather( sqrt( mean(mean(err2,1), 2) ) );
-        end
+        u = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
+        err2 = (u - f).^2;
+        msd(kIdx,lIdx) = gather( sqrt( mean(mean(err2,1),2) ) );
     end
 end
-
+end
