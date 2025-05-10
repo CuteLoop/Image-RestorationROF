@@ -1,119 +1,100 @@
 %% --------------------------------------------------------------------
-%  run_rof_hpc.m  —  resource‑aware ROF TV sweep
+%  run_rof_hpc.m  —  ROF TV sweep on whatever resources MATLAB sees
+%                   (single parallel pool only)
 % --------------------------------------------------------------------
-%  * Detects:  #GPUs  (gpuDeviceCount)
-%              #CPU workers available in local profile
-%  * Splits the four RGGB planes across GPUs first, remaining planes
-%    on a CPU pool (vectorised calculate_msd).
-%  * Works even if 0 GPUs are present (all planes go to CPUs).
-% --------------------------------------------------------------------
+clear;  clc;  format compact
 
-clear; clc; format compact
+%% 0. Close any stray pool from a previous run
+delete(gcp('nocreate'));
 
-%% 1.  Load RAW and extract planes
+%% 1. Load RAW and split into RGGB
 raw_img_filename = fullfile('.', 'images', 'DSC00099.ARW');
 fprintf('Reading %s …\n', raw_img_filename);
 cfa      = rawread(raw_img_filename);
-Iplanar  = raw2planar(cfa);              % H×W×4   (R,G1,G2,B)
-
+Iplanar  = raw2planar(cfa);
+fPlanes  = {Iplanar(:,:,1), Iplanar(:,:,2), ...
+            Iplanar(:,:,3), Iplanar(:,:,4)};
 colourName = ["R","G1","G2","B"];
-fPlanes    = {Iplanar(:,:,1), Iplanar(:,:,2), ...
-              Iplanar(:,:,3), Iplanar(:,:,4)};
 
-%% 2.  Parameter grid
-lambda   = logspace(-3, 0, 20);          % 1e‑3 … 1
-epsilon  = logspace(-4, -1, 20);         % 1e‑4 … 0.1
-[K, L]   = deal(numel(lambda), numel(epsilon));
+%% 2. Parameter grid
+lambda   = logspace(-3, 0, 20);
+epsilon  = logspace(-4, -1, 20);
+[K,L]    = deal(numel(lambda), numel(epsilon));
+nIter = 300;  dt = 0.25;
 
-nIter = 300;   dt = 0.25;                % solver controls
-
-%% 3.  Discover resources
+%% 3. Detect resources and open ONE pool
 numGPU = gpuDeviceCount("available");
-cpuLocal = parcluster('local');
-maxCPUWorkers = cpuLocal.NumWorkers;
+localC = parcluster('local');
+maxW   = localC.NumWorkers;              % e.g. 16 on your node
 
-fprintf('\n===== RESOURCE SUMMARY =====\n');
-fprintf('GPUs available : %d\n', numGPU);
-fprintf('CPU workers    : %d\n', maxCPUWorkers);
-fprintf('============================\n\n');
+% Reserve up to one host thread per GPU (rule‑of‑thumb)
+cpuWorkers = max(maxW - numGPU, 1);
+totalWorkers = cpuWorkers + numGPU;      % <= maxW
+pool = parpool("Processes", totalWorkers, "SpmdEnabled", true);
+fprintf('Pool started with %d workers  (%d GPUs, %d CPU workers)\n',...
+        totalWorkers, numGPU, cpuWorkers);
 
-%% 4.  Decide plane assignment
-gpuPlaneIdx   = 1:min(numGPU,4);             % planes handled on GPUs
-cpuPlaneIdx   = setdiff(1:4, gpuPlaneIdx);   % remaining planes
+%% 4. Assign planes to workers with PARFEVAL
+% We will launch FOUR tasks (one per plane).  The first 'numGPU' workers
+% lock GPUs 1..numGPU and process the heaviest planes (R, B here).
+planeOrder = [1 4 2 3];   % R, B go first (GPU); G1, G2 next (CPU)
+F = parallel.FevalFuture.empty(0,4);
 
-%% 5.  Spin up pools
-% -- GPU pool (if any) -------------------------------------------------
-if numGPU > 0
-    gpool = parpool("Processes", numGPU, "SpmdEnabled", true);
-    fprintf('GPU pool with %d labs started.\n', numGPU);
-else
-    gpool = [];                             %#ok<NASGU>
-    fprintf('No GPUs detected – running everything on CPUs.\n');
+for t = 1:4
+    pIdx = planeOrder(t);
+    if t <= numGPU          % send to GPU‑designated worker
+        F(t) = parfeval(pool, @gpu_plane_sweep, 1, ...
+                        fPlanes{pIdx}, lambda, epsilon, nIter, dt);
+        fprintf('  Worker %d → GPU task on %s‑plane\n', t, colourName(pIdx));
+    else                    % CPU task
+        F(t) = parfeval(pool, @cpu_plane_sweep, 1, ...
+                        fPlanes{pIdx}, lambda, epsilon, nIter, dt);
+        fprintf('  Worker %d → CPU task on %s‑plane\n', t, colourName(pIdx));
+    end
 end
 
-% -- CPU pool ----------------------------------------------------------
-% Leave one core free per GPU lab for host‑to‑device traffic (rule‑of‑thumb)
-cpuReserve = 2 * numGPU;
-cpuWorkers = max(maxCPUWorkers - cpuReserve, 1);
-cpuPool    = parpool("Processes", cpuWorkers, "SpmdEnabled", false);
-fprintf('CPU pool with %d workers started.\n\n', cpuWorkers);
-
-%% 6.  Launch GPU jobs (non‑blocking)
-F = parallel.FevalFuture.empty(0, numel(gpuPlaneIdx));
-for k = 1:numel(gpuPlaneIdx)
-    pIdx = gpuPlaneIdx(k);
-    F(k) = parfeval(gpool,@gpu_plane_sweep,1, ...
-                    fPlanes{pIdx}, lambda, epsilon, nIter, dt);
-    fprintf('GPU‑lab %d handling %s‑plane\n', k, colourName(pIdx));
-end
-
-%% 7.  CPU pool processes remaining planes
-msdCPU = zeros(K,L,numel(cpuPlaneIdx),'single');
-parfor (idx = 1:numel(cpuPlaneIdx), cpuWorkers)
-    pIdx = cpuPlaneIdx(idx);
-    fprintf('CPU worker denoising %s‑plane …\n', colourName(pIdx));
-    msdCPU(:,:,idx) = calculate_msd( ...
-                fPlanes{pIdx}, lambda, epsilon, nIter, dt );
-end
-
-%% 8.  Collect GPU results
-msdGPU = cell(1,numel(gpuPlaneIdx));
-for k = 1:numel(gpuPlaneIdx)
-    msdGPU{k} = fetchOutputs(F(k));
-end
-
-%% 9.  Assemble MSD cube in RGGB order
+%% 5. Gather results in original RGGB order
 msdCube = nan(K,L,4,'single');
-msdCube(:,:,gpuPlaneIdx) = cat(3, msdGPU{:});
-msdCube(:,:,cpuPlaneIdx) = msdCPU;
+for f = 1:4
+    [completedIdx, msd] = fetchNext(F);
+    pIdx = planeOrder(completedIdx);
+    msdCube(:,:,pIdx) = msd;
+    fprintf('Finished %s‑plane (task %d of 4)\n', colourName(pIdx), f);
+end
 
-%% 10.  Plot
-figure('Name','MSD surfaces – RGGB (resource‑aware)');
-hold on
+%% 6. Plot stacked MSD surfaces
+figure('Name','MSD surfaces – RGGB');
+hold on, alphaVal = 0.65;
 for p = 1:4
     surf(lambda, epsilon, msdCube(:,:,p).', ...
-        'EdgeColor','none','FaceAlpha',0.6);
+         'EdgeColor','none','FaceAlpha',alphaVal);
 end
 set(gca,'XScale','log','YScale','log'), view(45,25)
 xlabel('\lambda'), ylabel('\epsilon'), zlabel('MSD')
-legend(colourName), title('ROF MSD surfaces for raw planes')
+legend(colourName), title('ROF MSD surfaces for raw sensor planes')
 
-%% 11.  Save & shutdown
-save('rof_results_auto.mat','lambda','epsilon','msdCube','-v7.3');
-fprintf('\nResults saved in  rof_results_auto.mat\n');
+%% 7. Save & tidy up
+save('rof_results_singlepool.mat','lambda','epsilon','msdCube','-v7.3');
+fprintf('Saved results to  rof_results_singlepool.mat\n');
 
-delete(gpool);            % OK if gpool is []
-delete(gcp('nocreate'));  % closes CPU pool
-fprintf('Pools shut down.  All done.\n');
+delete(pool);
+fprintf('All done.\n');
 
 %% --------------------------------------------------------------------
-%  Helper (GPU) -------------------------------------------------------
-%  Each GPU lab receives ONE plane & full grid, returns K×L MSD.
+%  Helper – GPU version (locks one device, returns K×L MSD)
 % --------------------------------------------------------------------
 function msd = gpu_plane_sweep(f, lambda, epsilon, nIter, dt)
-    gpuDevice(labindex);                     % lock a unique GPU
+    gpuDevice;                        % lock the worker's assigned GPU
     f = gpuArray(single(f));
     u = smooth_image_rof(f, lambda, epsilon, nIter, dt);
     err2 = (u - f).^2;
-    msd  = gather( sqrt( mean(mean(err2,1), 2) ) );  % K×L
+    msd = gather( sqrt( mean(mean(err2,1), 2) ) );  % K×L
 end
+
+%% --------------------------------------------------------------------
+%  Helper – CPU version (plain calculate_msd)
+% --------------------------------------------------------------------
+function msd = cpu_plane_sweep(f, lambda, epsilon, nIter, dt)
+    msd = calculate_msd(single(f), lambda, epsilon, nIter, dt);
+end
+
