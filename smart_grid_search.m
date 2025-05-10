@@ -1,66 +1,52 @@
-function result = smart_grid_search(f, lambdaRange, epsilonRange, coarseN, refineN, halfDecades, nIter, dt)
-%SMART_GRID_SEARCH  Two-stage ROF parameter tuning on one image plane
+function allResults = foreach_plane_search(Iplanar, gridArgs, solverArgs)
+%FOREACH_PLANE_SEARCH  Two‑stage ROF search for every Bayer plane
 %
-% Usage:
-%   result = smart_grid_search(f, lambdaRange, epsilonRange, ...
-%                              coarseN, refineN, halfDecades, nIter, dt)
+%   allResults = foreach_plane_search(Iplanar, gridArgs, solverArgs)
 %
-% Inputs:
-%   f             – H×W single or gpuArray image
-%   lambdaRange   – [λ_min, λ_max], e.g. [1e-4, 1]
-%   epsilonRange  – [ε_min, ε_max], e.g. [1e-5, 1e-1]
-%   coarseN       – #points per axis in coarse scan (e.g. 10)
-%   refineN       – #points per axis in refinement scan (e.g. 15)
-%   halfDecades   – half-width of refine window in decades (e.g. 0.5)
-%   nIter, dt     – solver settings passed to calculate_msd
+% INPUT
+%   Iplanar   : H×W×4 array (R,G1,G2,B planes)
+%   gridArgs  : struct with fields
+%                 lambdaRange   [λ_min, λ_max]
+%                 epsilonRange  [ε_min, ε_max]
+%                 coarseN       points per axis in coarse grid
+%                 refineN       points per axis in refine grid
+%                 halfDecades   half‑width of refine window (decades)
+%   solverArgs: struct with fields
+%                 nIter         #ROF iterations
+%                 dt            time‑step
 %
-% Output struct fields:
-%   result.lambdaCoarse, result.epsilonCoarse : coarse grids
-%   result.msdCoarse                          : coarse MSD surface
-%   result.lambdaRefine, result.epsilonRefine : refined grids
-%   result.msdRefine                          : refined MSD surface
-%   result.bestCoarse = [λ*,ε*] in coarse scan
-%   result.bestRefine = [λ*,ε*] in refine scan
+% OUTPUT
+%   allResults: 1×4 struct array with fields
+%                 plane, bestCoarse, bestRefine, minCoarse, minRefine,
+%                 lambdaCoarse, epsilonCoarse, msdCoarse, ...
+%                 lambdaRefine, epsilonRefine, msdRefine
 
-% 1) Build coarse log-spaced grids
-lambda0  = logspace(log10(lambdaRange(1)),  log10(lambdaRange(2)),  coarseN);
-epsilon0 = logspace(log10(epsilonRange(1)), log10(epsilonRange(2)), coarseN);
+planes   = ["R","G1","G2","B"];
+numPlanes = size(Iplanar,3);
+allResults = repmat(struct(), 1, numPlanes);
 
-% 2) Evaluate coarse MSD
-msd0 = calculate_msd(f, lambda0, epsilon0, nIter, dt);
+for p = 1:numPlanes
+    fprintf('\n=== Processing %s plane ===\n', planes(p));
+    fPlane = single(Iplanar(:,:,p));
 
-% 3) Find coarse optimum
-[minVal0, linIdx0]   = min(msd0(:));
-[k0, l0]             = ind2sub([coarseN,coarseN], linIdx0);
-lstar0 = lambda0(k0);
-estar0 = epsilon0(l0);
+    % --- two‑stage search for this plane -----------------------------
+    result = smart_grid_search( ...
+        fPlane, ...
+        gridArgs.lambdaRange, ...
+        gridArgs.epsilonRange, ...
+        gridArgs.coarseN, ...
+        gridArgs.refineN, ...
+        gridArgs.halfDecades, ...
+        solverArgs.nIter, ...
+        solverArgs.dt );
 
-% 4) Build refined grids around (lstar0,estar0)
-lamLo = lstar0 * 10^(-halfDecades);
-lamHi = lstar0 * 10^( halfDecades);
-epsLo = estar0 * 10^(-halfDecades);
-epsHi = estar0 * 10^( halfDecades);
+    % --- store & print summary --------------------------------------
+    allResults(p)          = result;     % copy full struct
+    allResults(p).plane    = planes(p);  % add plane label
 
-lambda1  = logspace(log10(lamLo),  log10(lamHi),  refineN);
-epsilon1 = logspace(log10(epsLo), log10(epsHi), refineN);
-
-% 5) Evaluate refined MSD
-msd1 = calculate_msd(f, lambda1, epsilon1, nIter, dt);
-
-% 6) Find refined optimum
-[minVal1, linIdx1]   = min(msd1(:));
-[k1, l1]             = ind2sub([refineN,refineN], linIdx1);
-lstar1 = lambda1(k1);
-estar1 = epsilon1(l1);
-
-% 7) Package results
-result.lambdaCoarse   = lambda0;
-result.epsilonCoarse  = epsilon0;
-result.msdCoarse      = msd0;
-result.bestCoarse     = [lstar0, estar0];
-
-result.lambdaRefine   = lambda1;
-result.epsilonRefine  = epsilon1;
-result.msdRefine      = msd1;
-result.bestRefine     = [lstar1, estar1];
+    fprintf('  Coarse  minMSD = %.4f  at λ = %.3g, ε = %.3g\n', ...
+            min(result.msdCoarse(:)), result.bestCoarse);
+    fprintf('  Refined minMSD = %.4f  at λ = %.3g, ε = %.3g\n', ...
+            min(result.msdRefine(:)), result.bestRefine);
+end
 end
