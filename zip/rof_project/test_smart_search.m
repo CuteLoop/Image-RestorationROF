@@ -9,5 +9,11 @@ fprintf('[2] CPU par... '); setappdata(0,'rof_overrideGPU',false); delete(gcp('n
 pool=parpool('Processes',feature('numCores')); t2=tic; parfor p=1:4, run_one(Iplanar(:,:,p)); end; t_par=toc(t2); delete(pool); fprintf('%6.3f s\n',t_par);
 fprintf('[3] GPU solve... '); setappdata(0,'rof_overrideGPU',true); delete(gcp('nocreate')); gpuDevice; run_one(Iplanar(1:2,1:2,1));
 t3=tic; run_one(Iplanar(:,:,1)); t_gpu=toc(t3); rmappdata(0,'rof_overrideGPU'); fprintf('%6.3f s\n',t_gpu);
-fprintf('[4] Sanity... '); u=smooth_image_rof(single(Iplanar(:,:,1)),1e-6,1e-3,solver.nIter,solver.dt); err=max(abs(u(:)-Iplanar(:,:,1))); fprintf('maxErr=%6.3e\n',err);
+% …
+fprintf('[4] Sanity... ');
+U4D = smooth_image_rof(single(Iplanar(:,:,1)), 1e-6, 1e-3, solver.nIter, solver.dt);
+u    = squeeze(U4D(:,:,1,1));                  % pull out the 2D result
+err  = max(abs(u(:) - Iplanar(:,:,1)));        
+fprintf('maxErr=%6.3e\n', err);
+% …
 fprintf('\nSummary:\n CPU seq=%6.3f s\n CPU par=%6.3f s (×%.1f)\n GPU solve=%6.3f s (×%.1f)\n',t_seq,t_par,t_seq/t_par,t_gpu,t_seq/t_gpu);
