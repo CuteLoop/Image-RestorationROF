@@ -43,8 +43,10 @@ parfor p = 1:4
     resPar{p} = run_one(Iplanar(:,:,p));
 end
 t_par = toc;
+nWorkers = pool.NumWorkers;   % grab count before deleting
 delete(pool);  wait_for_pool_close();
-fprintf('  time = %.3f s  (workers = %d)\n', t_par, pool.NumWorkers);
+
+fprintf('  time = %.3f s  (workers = %d)\n', t_par, nWorkers);
 
 %% === 3) GPU (optional) ===============================================
 gpuDone = false;
