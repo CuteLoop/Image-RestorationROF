@@ -1,7 +1,7 @@
 %% test_smart_search.m  – sanity & timing checks for smart‑grid helpers
 clc; fprintf('\n=== Running smart‑search unit test ===\n');
 
-% ------------------------------------------------------------ synthetic data
+% ------------------------- synthetic 4‑plane toy data ------------------
 H = 64; W = 64;
 [X,Y] = meshgrid(linspace(0,1,W), linspace(0,1,H));
 base   = 0.6*X + 0.4*Y;
@@ -11,29 +11,49 @@ Iplanar = cat(3, ...
    single(base + 0.01*randn(H,W)), ...
    single(base + 0.03*randn(H,W)));
 
-% ------------------------------------------------------------ parameter structs
+% ------------------------- parameter structs ---------------------------
 grid   = struct('lambdaRange',[1e-4,1], 'epsilonRange',[1e-5,1e-2], ...
-                'coarseN',6,'refineN',8,'halfDecades',0.3);
-solver = struct('nIter',50,'dt',0.2);   % light settings for fast test
+                'coarseN',6, 'refineN',8, 'halfDecades',0.3);
+solver = struct('nIter',50,'dt',0.2);    % light for quick test
 
-% helper to run one search
 run_one = @(img) smart_grid_search(img, ...
-                    grid.lambdaRange, grid.epsilonRange, ...
-                    grid.coarseN, grid.refineN, grid.halfDecades, ...
-                    solver.nIter, solver.dt);
+                   grid.lambdaRange, grid.epsilonRange, ...
+                   grid.coarseN, grid.refineN, grid.halfDecades, ...
+                   solver.nIter, solver.dt);
 
-%% ----------------------------------------------------------- 1) sequential CPU
+% Helper: wait until pool is fully gone
+wait_for_pool_close = @() ...
+    (tic,   while ~isempty(gcp('nocreate')), pause(0.1); if toc>30, break; end; end);
+
+% === 1) SEQUENTIAL CPU ================================================
 fprintf('• Sequential smart_grid_search (single plane)…\n');
-delete(gcp('nocreate'));                      % ensure no pool
+delete(gcp('nocreate'));  wait_for_pool_close();
+
+useGPUorig = false;
+if exist('rof_config','file')
+    useGPUorig = rof_config();
+end
+% force CPU for baseline
+if exist('rof_config','file')
+    setappdata(0,'rof_useGPU_override',false);   % custom flag used in rof_config
+end
+
 tic
 res_seq = run_one(Iplanar(:,:,1));
 t_seq   = toc;
-fprintf('  time = %.3f  s\n', t_seq);
+fprintf('  time = %.3f s\n', t_seq);
 
-%% ----------------------------------------------------------- 2) parallel CPU
+delete(gcp('nocreate'));  wait_for_pool_close();
+
+% === 2) PARALLEL CPU ===================================================
 fprintf('• Parallel CPU run (parfor)…\n');
-numW = feature('numCores');
-pool = parpool("Processes", numW, "SpmdEnabled", false);
+numW = max(2, feature('numCores'));   % at least 2 for parfor
+try
+    pool = parpool("Processes", numW, "SpmdEnabled", false);
+catch
+    warning('Could not start %d workers – falling back to default pool.', numW);
+    pool = parpool("Processes");
+end
 
 resPar = cell(1,4);
 tic
@@ -41,19 +61,21 @@ parfor p = 1:4
     resPar{p} = run_one(Iplanar(:,:,p));
 end
 t_par = toc;
-delete(pool);
+delete(pool);  wait_for_pool_close();
+fprintf('  time = %.3f s  (workers = %d)\n', t_par, pool.NumWorkers);
 
-fprintf('  time = %.3f  s  (workers = %d)\n', t_par, numW);
-
-%% ----------------------------------------------------------- 3) GPU (optional)
+% === 3) GPU (optional) ================================================
 gpuDone = false;
+if exist('rof_config','file')
+    setappdata(0,'rof_useGPU_override',useGPUorig);   % restore original flag
+end
 if exist('rof_config','file') && rof_config() && gpuDeviceCount>0
     try
         fprintf('• GPU run (single plane)…\n');
         tic
         res_gpu = run_one(Iplanar(:,:,1));
         t_gpu = toc;
-        fprintf('  GPU time = %.3f  s\n', t_gpu);
+        fprintf('  GPU time = %.3f s\n', t_gpu);
         gpuDone = true;
     catch ME
         warning('GPU test failed: %s', ME.message);
@@ -62,11 +84,21 @@ else
     fprintf('• GPU test skipped (no rof_config() or no GPU available)\n');
 end
 
-%% ----------------------------------------------------------- summary
+% === summary ===========================================================
 fprintf('\nSpeed‑ups vs sequential:\n');
 fprintf('  Parallel CPU : ×%.2f\n', t_seq / t_par);
 if gpuDone
     fprintf('  GPU          : ×%.2f\n', t_seq / t_gpu);
 end
-
 fprintf('\n✅  All tests executed.\n');
+
+% -------- local override-friendly rof_config --------------------------
+function tf = rof_config()
+% Checks override flag first, then default (false)
+if isappdata(0,'rof_useGPU_override')
+    tf = getappdata(0,'rof_useGPU_override');
+else
+    tf = false;   % default for unit tests
+end
+end
+
