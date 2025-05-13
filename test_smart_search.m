@@ -13,7 +13,7 @@ Iplanar = cat(3, ...
 
 % ------------------------- parameter structs ---------------------------
 grid   = struct('lambdaRange',[1e-4,1], 'epsilonRange',[1e-5,1e-2], ...
-                'coarseN',6, 'refineN',8, 'halfDecades',0.3);
+                'coarseN',6,'refineN',8,'halfDecades',0.3);
 solver = struct('nIter',50,'dt',0.2);    % light for quick test
 
 run_one = @(img) smart_grid_search(img, ...
@@ -21,22 +21,9 @@ run_one = @(img) smart_grid_search(img, ...
                    grid.coarseN, grid.refineN, grid.halfDecades, ...
                    solver.nIter, solver.dt);
 
-% Helper: wait until pool is fully gone
-wait_for_pool_close = @() ...
-    (tic,   while ~isempty(gcp('nocreate')), pause(0.1); if toc>30, break; end; end);
-
-% === 1) SEQUENTIAL CPU ================================================
+%% === 1) SEQUENTIAL CPU ===============================================
 fprintf('• Sequential smart_grid_search (single plane)…\n');
 delete(gcp('nocreate'));  wait_for_pool_close();
-
-useGPUorig = false;
-if exist('rof_config','file')
-    useGPUorig = rof_config();
-end
-% force CPU for baseline
-if exist('rof_config','file')
-    setappdata(0,'rof_useGPU_override',false);   % custom flag used in rof_config
-end
 
 tic
 res_seq = run_one(Iplanar(:,:,1));
@@ -45,15 +32,10 @@ fprintf('  time = %.3f s\n', t_seq);
 
 delete(gcp('nocreate'));  wait_for_pool_close();
 
-% === 2) PARALLEL CPU ===================================================
+%% === 2) PARALLEL CPU ==================================================
 fprintf('• Parallel CPU run (parfor)…\n');
-numW = max(2, feature('numCores'));   % at least 2 for parfor
-try
-    pool = parpool("Processes", numW, "SpmdEnabled", false);
-catch
-    warning('Could not start %d workers – falling back to default pool.', numW);
-    pool = parpool("Processes");
-end
+numW = max(2, feature('numCores'));
+pool = parpool("Processes", numW, "SpmdEnabled", false);
 
 resPar = cell(1,4);
 tic
@@ -64,11 +46,8 @@ t_par = toc;
 delete(pool);  wait_for_pool_close();
 fprintf('  time = %.3f s  (workers = %d)\n', t_par, pool.NumWorkers);
 
-% === 3) GPU (optional) ================================================
+%% === 3) GPU (optional) ===============================================
 gpuDone = false;
-if exist('rof_config','file')
-    setappdata(0,'rof_useGPU_override',useGPUorig);   % restore original flag
-end
 if exist('rof_config','file') && rof_config() && gpuDeviceCount>0
     try
         fprintf('• GPU run (single plane)…\n');
@@ -84,7 +63,7 @@ else
     fprintf('• GPU test skipped (no rof_config() or no GPU available)\n');
 end
 
-% === summary ===========================================================
+%% === summary ==========================================================
 fprintf('\nSpeed‑ups vs sequential:\n');
 fprintf('  Parallel CPU : ×%.2f\n', t_seq / t_par);
 if gpuDone
@@ -92,13 +71,17 @@ if gpuDone
 end
 fprintf('\n✅  All tests executed.\n');
 
-% -------- local override-friendly rof_config --------------------------
-function tf = rof_config()
-% Checks override flag first, then default (false)
-if isappdata(0,'rof_useGPU_override')
-    tf = getappdata(0,'rof_useGPU_override');
-else
-    tf = false;   % default for unit tests
+% ======================================================================
+% Local helper functions
+% ======================================================================
+function wait_for_pool_close()
+% Block until MATLAB's current parallel pool is fully shut down
+t0 = tic;
+while ~isempty(gcp('nocreate'))
+    pause(0.1);
+    if toc(t0) > 30      % 30‑second safety timeout
+        warning('Pool did not shut down within 30 s.');
+        break
+    end
 end
 end
-
