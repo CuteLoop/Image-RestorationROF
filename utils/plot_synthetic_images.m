@@ -1,16 +1,22 @@
-function plot_synthetic_images(outputPath)
-    if nargin < 1
-        outputPath = fullfile('utils', 'synthetic_images.png');
-    end
+function plot_synthetic_images()
     types = {'gradient', 'checkerboard', 'sinusoidal'};
-    figure('Name','Synthetic Test Images','Visible','off');
-    for i = 1:length(types)
-        img = generate_synthetic_image(types{i}, [128, 128]);
-        subplot(1, length(types), i);
-        imagesc(img); colormap gray; axis image off;
+    sz = [128, 128];
+    t = tiledlayout(1, numel(types), 'Padding','compact','TileSpacing','compact');
+
+    for i = 1:numel(types)
+        nexttile;
+        img = generate_synthetic_image(types{i}, sz);
+        imagesc(img); axis image off; colormap gray;
         title(types{i});
     end
+
+    % ✅ Ensure the output folder exists
+    outputDir = 'utils';
+    if ~exist(outputDir, 'dir')
+        mkdir(outputDir);
+    end
+
+    outputPath = fullfile(outputDir, 'synthetic_images.png');
     exportgraphics(gcf, outputPath, 'Resolution', 150);
-    close(gcf);
-    fprintf('✅ Synthetic images saved to %s\n', outputPath);
+    disp(['✅ Saved to ', outputPath]);
 end
