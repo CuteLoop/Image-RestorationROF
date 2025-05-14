@@ -1,4 +1,4 @@
-outputDir = 'results/test_grid_4x4';
+outputDir = 'results/test_grid_5x5';
 if ~exist(outputDir, 'dir')
     mkdir(outputDir);
 end
@@ -6,6 +6,8 @@ end
 types = {'gradient', 'sinusoidal', 'checkerboard'};
 lambdaList = [0.1, 0.3, 0.5, 1.0, 2.0];
 epsilonList = [0.0001, 0.002, 0.005, 0.01, 0.02];
+nL = length(lambdaList);
+nE = length(epsilonList);
 
 for t = 1:length(types)
     imgType = types{t};
@@ -21,12 +23,12 @@ for t = 1:length(types)
             f_noisy = add_noise(f_clean, 'gaussian', 0.05);
     end
 
-    % Create a grid of 4x4 denoised outputs
+    % Create a grid of nL x nE denoised outputs
     fig = figure('Visible','off');
-    tiledlayout(4, 4, 'Padding','compact', 'TileSpacing','compact');
+    tiledlayout(nL, nE, 'Padding','compact', 'TileSpacing','compact');
 
-    for i = 1:length(lambdaList)
-        for j = 1:length(epsilonList)
+    for i = 1:nL
+        for j = 1:nE
             lam = lambdaList(i);
             eps = epsilonList(j);
 
@@ -34,8 +36,8 @@ for t = 1:length(types)
 
             nexttile;
             imagesc(u); colormap gray; axis image off;
-            title(sprintf('\\lambda=%.2f, \\epsilon=%.3f', lam, eps), ...
-                  'FontSize', 8, 'Interpreter','tex');
+            title(sprintf('\\lambda=%.2f, \\epsilon=%.4f', lam, eps), ...
+                  'FontSize', 7, 'Interpreter','tex');
         end
     end
 
