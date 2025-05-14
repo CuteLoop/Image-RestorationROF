@@ -1,5 +1,4 @@
 
-```markdown
 # Image Restoration using the ROF Model
 
 **Joel Maldonado · 2025-05-14**
