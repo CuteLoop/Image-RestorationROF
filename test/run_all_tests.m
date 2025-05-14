@@ -1,4 +1,5 @@
-addpath('../utils'); 
+addpath('..');        % Adds the project root to the path
+addpath('../utils');  % (Optional) Add utilities if needed
 disp('=== Running all ROF image restoration tests ===');
 test_zero_noise
 test_high_noise_recovery
