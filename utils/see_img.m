@@ -1,3 +1,5 @@
 img = imread('utils/synthetic_images.png');
-imshow(img);
-title('Loaded Synthetic Image');
+figure;
+image(img);
+axis image off;
+title('RGB Image Displayed with image()');
