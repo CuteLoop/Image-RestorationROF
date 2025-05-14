@@ -1,6 +1,7 @@
 function test_plot_rof_grid_planes()
 % TEST_PLOT_ROF_GRID_PLANES Self-contained test to generate ROF grid for each Bayer plane
-
+    addpath('..');        % Adds the project root to the path
+    addpath('../utils');  % Add utilities if needed
     rawFile = './images/DSC00099.ARW';
     fprintf('📥 Reading raw image: %s\n', rawFile);
 
