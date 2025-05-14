@@ -1,0 +1,992 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.19)  13 MAY 2025 23:33
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex
+(c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+(C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2023/05/17 v1.4n Standard LaTeX document class
+(C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/base\size11.clo
+File: size11.clo 2023/05/17 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count187
+\c@section=\count188
+\c@subsection=\count189
+\c@subsubsection=\count190
+\c@paragraph=\count191
+\c@subparagraph=\count192
+\c@figure=\count193
+\c@table=\count194
+\abovecaptionskip=\skip48
+\belowcaptionskip=\skip49
+\bibindent=\dimen140
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count195
+\Gm@cntv=\count196
+\c@Gm@tempcnt=\count197
+\Gm@bindingoffset=\dimen141
+\Gm@wd@mp=\dimen142
+\Gm@odd@mp=\dimen143
+\Gm@even@mp=\dimen144
+\Gm@layoutwidth=\dimen145
+\Gm@layoutheight=\dimen146
+\Gm@layouthoffset=\dimen147
+\Gm@layoutvoffset=\dimen148
+\Gm@dimlist=\toks18
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2023/05/13 v2.17o AMS math features
+\@mathmargin=\skip50
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks19
+\ex@=\dimen149
+)) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen150
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count198
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count199
+\leftroot@=\count266
+LaTeX Info: Redefining \overline on input line 399.
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count267
+\DOTSCASE@=\count268
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
+\big@size=\dimen151
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count269
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count270
+\dotsspace@=\muskip16
+\c@parentequation=\count271
+\dspbrk@lvl=\count272
+\tag@help=\toks20
+\row@=\count273
+\column@=\count274
+\maxfields@=\count275
+\andhelp@=\toks21
+\eqnshift@=\dimen152
+\alignsep@=\dimen153
+\tagshift@=\dimen154
+\tagwidth@=\dimen155
+\totwidth@=\dimen156
+\lineht@=\dimen157
+\@envbody=\toks22
+\multlinegap=\skip51
+\multlinetaggap=\skip52
+\mathdisplay@stack=\toks23
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen158
+\Gin@req@width=\dimen159
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 274.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
+Package xcolor Info: Model `RGB' extended on input line 1366.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1368.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1370.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2023/08/05 v3.6o Customizing captions (AR)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
+\caption@tempdima=\dimen160
+\captionmargin=\dimen161
+\caption@leftmargin=\dimen162
+\caption@rightmargin=\dimen163
+\caption@width=\dimen164
+\caption@indent=\dimen165
+\caption@parindent=\dimen166
+\caption@hangindent=\dimen167
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count276
+\c@continuedfloat=\count277
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2023-11-26 v7.01g Hypertext links for LaTeX
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.sty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2023-11-26 v2.56 Cross-referencing by name of section
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count278
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count279
+)
+\@linkdim=\dimen168
+\Hy@linkcounter=\count280
+\Hy@pagecounter=\count281
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2023-11-26 v7.01g Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+\Hy@SavedSpaceFactor=\count282
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2023-11-26 v7.01g Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Hyper figures OFF on input line 4181.
+Package hyperref Info: Link nesting OFF on input line 4186.
+Package hyperref Info: Hyper index ON on input line 4189.
+Package hyperref Info: Plain pages OFF on input line 4196.
+Package hyperref Info: Backreferencing OFF on input line 4201.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4448.
+\c@Hy@tempcnt=\count283
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4786.
+\XeTeXLinkMargin=\dimen169
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
+))
+\Fld@menulength=\count284
+\Field@Width=\dimen170
+\Fld@charsize=\dimen171
+Package hyperref Info: Hyper figures OFF on input line 6065.
+Package hyperref Info: Link nesting OFF on input line 6070.
+Package hyperref Info: Hyper index ON on input line 6073.
+Package hyperref Info: backreferencing OFF on input line 6080.
+Package hyperref Info: Link coloring OFF on input line 6085.
+Package hyperref Info: Link coloring with OCG OFF on input line 6090.
+Package hyperref Info: PDF/A mode OFF on input line 6095.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count285
+\c@Item=\count286
+\c@Hfootnote=\count287
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2023-11-26 v7.01g Hyperref driver for pdfTeX
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
+with kernel methods
+)
+\Fld@listcount=\count288
+\c@bookmark@seq@number=\count289
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquecounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
+)
+\Hy@SectionHShift=\skip53
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count290
+\l__pdf_internal_box=\box53
+)
+No file r2.aux.
+\openout1 = `r2.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
+LaTeX Font Info:    ... okay on input line 10.
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-37.0pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=59.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count291
+\scratchdimen=\dimen172
+\scratchbox=\box54
+\nofMPsegments=\count292
+\nofMParguments=\count293
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count294
+\MPscratchDim=\dimen173
+\MPnumerator=\count295
+\makeMPintoPDFobject=\count296
+\everyMPtoPDFconversion=\toks25
+) (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (C:\Users\joela\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 10.
+\@outlinefile=\write3
+\openout3 = `r2.out'.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:23: Missing $ inserted.
+<inserted text> 
+                $
+l.23 ... solution over a parameter grid \$(\lambda
+                                                  , \epsilon)\$.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:24: Missing $ inserted.
+<inserted text> 
+                $
+l.24 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_combined\_offset.png' not found on input line 38.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:38: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_combined_offset.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.38 ...rfaces/msd\_surface\_combined\_offset.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+l.39 ...ffsets were applied to aid visualization.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+l.39 ...ffsets were applied to aid visualization.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+l.39 ...ffsets were applied to aid visualization.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
+<inserted text> 
+                $
+l.39 ...ffsets were applied to aid visualization.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:50: Missing $ inserted.
+<inserted text> 
+                $
+l.50 We computed \$\text{MSD}(f, \lambda
+                                        , \epsilon)\$ for all 4 planes and p...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:51: Missing $ inserted.
+<inserted text> 
+                $
+l.51 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (380.18933pt too wide) in paragraph at lines 50--51
+\OT1/cmr/m/n/10.95 We com-puted \TS1/cmr/m/n/10.95 $[]\OT1/cmr/m/n/10.95 (f, $\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 )$\OML/cmm/m/it/10.95 forall\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 planesandplottedtheresultingsurfacesusingMATLAB[]s[]function:Theplotsrevealclearvariationinnoisesensitivityacrosscolorchannels:$ 
+ []
+
+
+LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_red.png' not found on input line 54.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:54: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_red.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.54 ...sults/msd\_surfaces/msd\_surface\_red.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_green1.png' not found on input line 55.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:55: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_green1.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...ts/msd\_surfaces/msd\_surface\_green1.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_green2.png' not found on input line 56.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:56: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_green2.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.56 ...ts/msd\_surfaces/msd\_surface\_green2.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_blue.png' not found on input line 57.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:57: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_blue.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 ...ults/msd\_surfaces/msd\_surface\_blue.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
+<inserted text> 
+                $
+l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+LaTeX Warning: Float too large for page by 1173.98225pt on input line 59.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[1
+
+{C:/Users/joela/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+
+LaTeX Warning: File `results/test\_images/zero\_noise\_gradient.png' not found on input line 67.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:67: Package pdftex.def Error: File `results/test_images/zero_noise_gradient.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.67 ...ts/test\_images/zero\_noise\_gradient.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: File `results/test\_images/high\_noise\_sinusoidal.png' not found on input line 74.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:74: Package pdftex.def Error: File `results/test_images/high_noise_sinusoidal.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.74 .../test\_images/high\_noise\_sinusoidal.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+LaTeX Warning: File `results/test_images/checkerboard_denoising.png' not found on input line 81.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:81: Package pdftex.def Error: File `results/test_images/checkerboard_denoising.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.81 ...ts/test_images/checkerboard_denoising.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[2]
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:90: Missing $ inserted.
+<inserted text> 
+                $
+l.90 \item Higher \$\lambda
+                           \$ values result in overly smooth images, reducin...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 \item
+           Low \$\epsilon\$ values tend to produce sharper gradients but are...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 \item L
+            ow \$\epsilon\$ values tend to produce sharper gradients but are...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.91 \item L
+            ow \$\epsilon\$ values tend to produce sharper gradients but are...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Command \end{itemize} invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.92 \end{itemize}
+                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: Missing $ inserted.
+<inserted text> 
+                $
+l.92 \end{itemize}
+                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (363.93692pt too wide) in paragraph at lines 90--93
+[]\OT1/cmr/m/n/10.95 Higher \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 valuesresultinoverlysmoothimages; reducingMSDbutalsopossiblyremovingfinedetail:Low\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 ^^O\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 valuestendtoproducesharpergradientsbutaremoresensitivetonoise:$ 
+ []
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:94: Missing $ inserted.
+<inserted text> 
+                $
+l.94 ...: a balanced regularization (mid \$\lambda
+                                                  , \epsilon\$) yields minim...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:95: Missing $ inserted.
+<inserted text> 
+                $
+l.95 
+     
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+Overfull \hbox (227.8281pt too wide) in paragraph at lines 94--95
+[]\OT1/cmr/m/n/10.95 This anal-y-sis in-forms fu-ture im-age de-nois-ing work-flows: a bal-anced reg-u-lar-iza-tion (mid \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 $)\OML/cmm/m/it/10.95 yieldsminimalnoisewithoutsacrificingstructure:$ 
+ []
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:101: Missing $ inserted.
+<inserted text> 
+                $
+l.101 .... Computes smoothed image over \$(\lambda
+                                                  , \epsilon)\$ grid.
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \item
+            \texttt{calculate\_msd.m} -- Computes Mean Square Difference bet...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \item \texttt
+                   {calculate\_msd.m} -- Computes Mean Square Difference bet...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.102 \item \texttt
+                   {calculate\_msd.m} -- Computes Mean Square Difference bet...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 \item
+            \texttt{cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Missing $ inserted.
+<inserted text> 
+                $
+l.103 \item \texttt
+                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Missing } inserted.
+<inserted text> 
+                }
+l.103 \item \texttt
+                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (123.0616pt too wide) in paragraph at lines 101--103
+\OT1/cmr/m/n/10.95 im-age over \TS1/cmr/m/n/10.95 $\OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 )$\OML/cmm/m/it/10.95 grid:[] \OMS/cmsy/m/n/10.95 ^^@ ^^@\OML/cmm/m/it/10.95 ComputesMeanSquareDifferencebetweenoriginalandsmoothedimages:[][]$ 
+ []
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.103 \item \texttt
+                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:116: Missing $ inserted.
+<inserted text> 
+                $
+l.116 ...icity:} ensures MSD trends with \$\lambda
+                                                  \$ and \$\epsilon\$ follow...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 \item
+            \textbf{Output shape:} confirms correct dimensions when computin...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 \item \textbf
+                   {Output shape:} confirms correct dimensions when computin...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.117 \item \textbf
+                   {Output shape:} confirms correct dimensions when computin...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: LaTeX Error: Command \item invalid in math mode.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 \item
+            \textbf{Boundary conditions:} ensures Neumann conditions are res...
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Missing $ inserted.
+<inserted text> 
+                $
+l.118 \item \textbf
+                   {Boundary conditions:} ensures Neumann conditions are res...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Missing } inserted.
+<inserted text> 
+                }
+l.118 \item \textbf
+                   {Boundary conditions:} ensures Neumann conditions are res...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+Overfull \hbox (317.82823pt too wide) in paragraph at lines 116--118
+[]\OT1/cmr/bx/n/10.95 Monotonicity: \OT1/cmr/m/n/10.95 en-sures MSD trends with \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 and\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 ^^O\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 followexpectedbehavior:[]confirmscorrectdimensionswhencomputinga\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 Dparametergrid:[][]$ 
+ []
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Extra }, or forgotten \endgroup.
+\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
+                                                  \fi 
+l.118 \item \textbf
+                   {Boundary conditions:} ensures Neumann conditions are res...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+[3]
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:130: LaTeX Error: Environment lstlisting undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.130 \begin{lstlisting}
+                        \[language=matlab,caption={All tests runner}]
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:139: LaTeX Error: Unicode character ✅ (U+2705)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.139 disp('✅
+                All tests completed');
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: LaTeX Error: \begin{equation*} on input line 130 ended by \end{lstlisting}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.140 \end{lstlisting}
+                      
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: Missing $ inserted.
+<inserted text> 
+                $
+l.140 \end{lstlisting}
+                      
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: Display math should end with $$.
+<to be read again> 
+                   \endgroup 
+l.140 \end{lstlisting}
+                      
+The `$' that I just saw supposedly matches a previous `$$'.
+So I shall assume that you typed `$$' both times.
+
+
+Overfull \hbox (1233.37994pt too wide) detected at line 140
+\OML/cmm/m/it/10.95 language \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 matlab; caption \OT1/cmr/m/n/10.95 = []]\OML/cmm/m/it/10.95 disp\OT1/cmr/m/n/10.95 ([]=== \OML/cmm/m/it/10.95 ROFTestLog \OT1/cmr/m/n/10.95 ===[]); \OML/cmm/m/it/10.95 test[]zero[]noise\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]high[]noise[]recovery\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]msd[]monotonic[]lambda\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]output[]shape\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]boundary[]conditions\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]numerical[]stability\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]gpu[]fallback\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]batch[]speedup\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]visual[]check\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]msd[]surface[]plot\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]cpu[]gpu[]equivalence\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 disp\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 Alltestscompleted[]\OT1/cmr/m/n/10.95 );
+ []
+
+[4] [5] [6] [7] [8] (r2.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-01-04>
+ ***********
+
+
+Package rerunfilecheck Warning: File `r2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `r2.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  066A2BF4FFC4BD813765A53324D3BB22;2360.
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 130 (\begingroup)
+### bottom level 
+Here is how much of TeX's memory you used:
+ 11602 strings out of 474486
+ 194305 string characters out of 5743755
+ 1937542 words of memory out of 5000000
+ 33742 multiletter control sequences out of 15000+600000
+ 565604 words of font info for 63 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,6n,79p,332b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on r2.pdf (8 pages, 185426 bytes).
+PDF statistics:
+ 135 PDF objects out of 1000 (max. 8388607)
+ 31 named destinations out of 1000 (max. 500000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+
