@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1747205543.83185 "c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex" "r2.pdf" "r2" 1747205548.20859 2
+["pdflatex"] 1747206114.72194 "c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex" "r2.pdf" "r2" 1747206119.61737 2
   "C:/Users/joela/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1747169276 288846 e7552dd9ec2628703e99ea6465dd1813 ""
   "C:/Users/joela/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1721414049 24225046 5ca45e7170c35f4babd5dce8aa1721c3 ""
   "C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1001775420 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -88,10 +88,10 @@
   "C:/Users/joela/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657800696 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/joela/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/joela/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex" 1747205492 6599 0a0cd766db3939620bd310e375e592c1 ""
-  "r2.aux" 1747205546 821 e84a119053813f621b25fa9c5d457dfb "pdflatex"
-  "r2.out" 1747205546 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "r2.tex" 1747205492 6599 0a0cd766db3939620bd310e375e592c1 ""
+  "c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex" 1747206107 6599 0a0cd766db3939620bd310e375e592c1 ""
+  "r2.aux" 1747206118 821 e84a119053813f621b25fa9c5d457dfb "pdflatex"
+  "r2.out" 1747206117 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "r2.tex" 1747206107 6599 0a0cd766db3939620bd310e375e592c1 ""
   "report/msd_surfaces.png" 0 -1 0 ""
   "report/rof_grid_planes_combined.png" 0 -1 0 ""
   "test/plots/cpu_gpu_diff.png" 0 -1 0 ""
