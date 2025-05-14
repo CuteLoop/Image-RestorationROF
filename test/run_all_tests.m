@@ -5,7 +5,11 @@ rng(42);  % or any fixed integer seed
 % Set the random seed for reproducibility
 
 disp('=== Running all ROF image restoration tests ===');
-test_zero_noise
+test_zero_noise_gradient
+test_zero_noise_constant_loose
+test_zero_noise_constant_strict
+disp('=== ✅ Zero noise tests complete ===');
+
 test_high_noise_recovery
 test_monotonic_lambda
 test_output_shape
