@@ -1,6 +1,6 @@
 function u = smooth_image_rof(f, lambda, epsilon, nIter, dt)
 %SMOOTH_IMAGE_ROF  Vectorized ROF solver over λ×ε grid, CPU/GPU adaptive
-if nargin<4, nIter=300; dt=0.25; end
+if nargin<4, nIter=100; dt=0.25; end
 useGPU = exist('rof_config','file') && rof_config() && gpuDeviceCount>0;
 
 if useGPU
@@ -14,7 +14,7 @@ lambda = lambda(:).'; epsilon = epsilon(:).';
 K = numel(lambda);   L = numel(epsilon);
 
 u = zeros(H,W,K,L,'like',f);
-tol = 1e-6;
+tol = 1e-4;
 
 for k = 1:K
   for l = 1:L

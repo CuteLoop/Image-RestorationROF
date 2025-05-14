@@ -1,29 +1,21 @@
 function msd = gpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
-% Memory‐adaptive GPU batching for ROF MSD
-g = gpuDevice; freeB = g.AvailableMemory; totalB = g.TotalMemory;
+%GPU_PLANE_SWEEP  GPU-based ROF MSD evaluation with chunked batching
+
+if nargin < 4, nIter = 100; dt = 0.25; end
 f = gpuArray(single(fHost));
-[H,W] = size(f);
-lambda = lambda(:).';     % ✅ No cast; GPU uses single from f
-epsilon = epsilon(:).';
-K = numel(lambda); L = numel(epsilon);
-msd = zeros(K, L, 'like', f);  % ✅ Safe
-overhead = 7; bytesPlane = H*W*4;
-blk = 32;
-while blk>1
-  bytes4D = H*W*blk*blk*4;
-  if bytes4D<0.8*totalB && (overhead*bytes4D+bytesPlane)<0.8*freeB, break; end
-  blk = blk/2;
-end
-blk = max(1,blk);
-for k0=1:blk:K
-  kIdx = k0:min(k0+blk-1,K);
-  lamSub = reshape(lambda(kIdx),1,1,1,[]);
-  for l0=1:blk:L
-    lIdx = l0:min(l0+blk-1,L);
-    epsSub = reshape(epsilon(lIdx),1,1,1,[]);
-    uTile = smooth_image_rof(f, lamSub, epsSub, nIter, dt);
-    err2 = (uTile - f).^2;
-    msd(kIdx,lIdx) = gather(sqrt(mean(mean(err2,1),2)));
-  end
+[H, W] = size(f);
+lambda = lambda(:); epsilon = epsilon(:);
+K = length(lambda); L = length(epsilon);
+msd = zeros(K, L, 'like', f);
+
+chunkSize = 6;
+for i = 1:chunkSize:K
+    iEnd = min(i + chunkSize - 1, K);
+    lambdaChunk = lambda(i:iEnd);
+    Ublock = smooth_image_rof(f, lambdaChunk, epsilon, nIter, dt);
+    Fblock = repmat(f, [1, 1, iEnd - i + 1, L]);
+    diff2 = (Ublock - Fblock).^2;
+    sums = squeeze(sum(sum(diff2, 1), 2));
+    msd(i:iEnd, :) = gather(sqrt(sums / (H * W)));
 end
 end
