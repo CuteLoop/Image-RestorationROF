@@ -10,13 +10,18 @@ function plot_synthetic_images()
         title(types{i});
     end
 
-    % ✅ Ensure the output folder exists
+    % ✅ Ensure the output directory exists before saving
     outputDir = 'utils';
-    if ~exist(outputDir, 'dir')
+    if ~isfolder(outputDir)
+        fprintf('Creating output directory: %s\n', outputDir);
         mkdir(outputDir);
     end
 
     outputPath = fullfile(outputDir, 'synthetic_images.png');
-    exportgraphics(gcf, outputPath, 'Resolution', 150);
-    disp(['✅ Saved to ', outputPath]);
+    try
+        exportgraphics(gcf, outputPath, 'Resolution', 150);
+        fprintf('✅ Saved synthetic image plot to %s\n', outputPath);
+    catch ME
+        fprintf('❌ Failed to save figure: %s\n', ME.message);
+    end
 end
