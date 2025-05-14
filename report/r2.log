@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.19)  14 MAY 2025 00:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.19)  14 MAY 2025 01:15
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,8 +267,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box53
-)
-No file r2.aux.
+) (r2.aux)
 \openout1 = `r2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -289,6 +288,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -352,62 +352,213 @@ Package hyperref Info: Link coloring OFF on input line 10.
  [1
 
 {C:/Users/joela/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+<../utils/results/test_images/checkerboard_denoising.png, id=23, 355.0866pt x 103.1052pt>
+File: ../utils/results/test_images/checkerboard_denoising.png Graphic file (type png)
+<use ../utils/results/test_images/checkerboard_denoising.png>
+Package pdftex.def Info: ../utils/results/test_images/checkerboard_denoising.png  used on input line 83.
+(pdftex.def)             Requested size: 469.75502pt x 136.4092pt.
+<../utils/results/test_images/high_noise_sinusoidal.png, id=24, 338.7054pt x 103.1052pt>
+File: ../utils/results/test_images/high_noise_sinusoidal.png Graphic file (type png)
+<use ../utils/results/test_images/high_noise_sinusoidal.png>
+Package pdftex.def Info: ../utils/results/test_images/high_noise_sinusoidal.png  used on input line 90.
+(pdftex.def)             Requested size: 469.75502pt x 143.00429pt.
 
-LaTeX Warning: File `report/msd_surfaces.png' not found on input line 53.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../utils/results/test_images/zero_noise_gradient.png, id=25, 347.3778pt x 103.1052pt>
+File: ../utils/results/test_images/zero_noise_gradient.png Graphic file (type png)
+<use ../utils/results/test_images/zero_noise_gradient.png>
+Package pdftex.def Info: ../utils/results/test_images/zero_noise_gradient.png  used on input line 97.
+(pdftex.def)             Requested size: 469.75502pt x 139.42827pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../utils/results/test_grid_5x5/gradient_grid.png, id=26, 391.7034pt x 294.8616pt>
+File: ../utils/results/test_grid_5x5/gradient_grid.png Graphic file (type png)
+<use ../utils/results/test_grid_5x5/gradient_grid.png>
+Package pdftex.def Info: ../utils/results/test_grid_5x5/gradient_grid.png  used on input line 107.
+(pdftex.def)             Requested size: 469.75502pt x 353.62967pt.
+[2 <../utils/results/test_images/checkerboard_denoising.png (PNG copy)>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../utils/results/test_grid_5x5/sinusoidal_grid.png, id=41, 391.7034pt x 294.8616pt>
+File: ../utils/results/test_grid_5x5/sinusoidal_grid.png Graphic file (type png)
+<use ../utils/results/test_grid_5x5/sinusoidal_grid.png>
+Package pdftex.def Info: ../utils/results/test_grid_5x5/sinusoidal_grid.png  used on input line 113.
+(pdftex.def)             Requested size: 469.75502pt x 353.62967pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../utils/results/test_grid_5x5/checkerboard_grid.png, id=42, 391.7034pt x 294.8616pt>
+File: ../utils/results/test_grid_5x5/checkerboard_grid.png Graphic file (type png)
+<use ../utils/results/test_grid_5x5/checkerboard_grid.png>
+Package pdftex.def Info: ../utils/results/test_grid_5x5/checkerboard_grid.png  used on input line 119.
+(pdftex.def)             Requested size: 469.75502pt x 353.62967pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:53: Package pdftex.def Error: File `report/msd_surfaces.png' not found: using draft setting.
+LaTeX Warning: File `report/msd_surfaces.png' not found on input line 127.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:127: Package pdftex.def Error: File `report/msd_surfaces.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.53 ...width=\textwidth]{report/msd_surfaces.png}
+l.127 ...idth=\textwidth]{report/msd_surfaces.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[2]
 
-LaTeX Warning: File `report/rof_grid_planes_combined.png' not found on input line 66.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:66: Package pdftex.def Error: File `report/rof_grid_planes_combined.png' not found: using draft setting.
+LaTeX Warning: File `report/rof_grid_planes_combined.png' not found on input line 139.
+
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:139: Package pdftex.def Error: File `report/rof_grid_planes_combined.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.66 ...idth]{report/rof_grid_planes_combined.png}
+l.139 ...dth]{report/rof_grid_planes_combined.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[3]
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:95: LaTeX Error: Unicode character ≈ (U+2248)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<../test/results/rof_grid_plane_R.png, id=43, 356.532pt x 294.3798pt>
+File: ../test/results/rof_grid_plane_R.png Graphic file (type png)
+<use ../test/results/rof_grid_plane_R.png>
+Package pdftex.def Info: ../test/results/rof_grid_plane_R.png  used on input line 155.
+(pdftex.def)             Requested size: 399.29463pt x 329.7166pt.
+[3 <../utils/results/test_images/high_noise_sinusoidal.png (PNG copy)> <../utils/results/test_images/zero_noise_gradient.png (PNG copy)>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4 <../utils/results/test_grid_5x5/gradient_grid.png (PNG copy)>] [5 <../utils/results/test_grid_5x5/sinusoidal_grid.png (PNG copy)>] [6 <../utils/results/test_grid_5x5/checkerboard_grid.png (PNG copy)>] [7] [8] [9 <../test/results/rof_grid_plane_R.png (PNG copy)>]
+<../test/results/rof_grid_plane_G1.png, id=86, 356.532pt x 294.3798pt>
+File: ../test/results/rof_grid_plane_G1.png Graphic file (type png)
+<use ../test/results/rof_grid_plane_G1.png>
+Package pdftex.def Info: ../test/results/rof_grid_plane_G1.png  used on input line 163.
+(pdftex.def)             Requested size: 399.29463pt x 329.7166pt.
+ [10
+
+ <../test/results/rof_grid_plane_G1.png (PNG copy)>]
+<../test/results/rof_grid_plane_G2.png, id=93, 356.532pt x 294.3798pt>
+File: ../test/results/rof_grid_plane_G2.png Graphic file (type png)
+<use ../test/results/rof_grid_plane_G2.png>
+Package pdftex.def Info: ../test/results/rof_grid_plane_G2.png  used on input line 171.
+(pdftex.def)             Requested size: 399.29463pt x 329.7166pt.
+ [11
+
+ <../test/results/rof_grid_plane_G2.png (PNG copy)>]
+<../test/results/rof_grid_plane_B.png, id=100, 356.532pt x 294.3798pt>
+File: ../test/results/rof_grid_plane_B.png Graphic file (type png)
+<use ../test/results/rof_grid_plane_B.png>
+Package pdftex.def Info: ../test/results/rof_grid_plane_B.png  used on input line 179.
+(pdftex.def)             Requested size: 399.29463pt x 329.7166pt.
+ [12
+
+ <../test/results/rof_grid_plane_B.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_red_angle_135_30.png, id=107, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_red_angle_135_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_red_angle_135_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_red_angle_135_30.png  used on input line 200.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [13
+
+ <../utils/results/msd_surfaces/msd_surface_red_angle_135_30.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_red_angle_180_45.png, id=116, 366.168pt x 302.5704pt>
+File: ../utils/results/msd_surfaces/msd_surface_red_angle_180_45.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_red_angle_180_45.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_red_angle_180_45.png  used on input line 207.
+(pdftex.def)             Requested size: 328.82707pt x 271.71988pt.
+ [14
+
+ <../utils/results/msd_surfaces/msd_surface_red_angle_180_45.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_green1_angle_135_30.png, id=122, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_green1_angle_135_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_green1_angle_135_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_green1_angle_135_30.png  used on input line 215.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [15
+
+ <../utils/results/msd_surfaces/msd_surface_green1_angle_135_30.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_green1_angle_225_30.png, id=129, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_green1_angle_225_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_green1_angle_225_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_green1_angle_225_30.png  used on input line 222.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [16
+
+ <../utils/results/msd_surfaces/msd_surface_green1_angle_225_30.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_green2_angle_135_30.png, id=135, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_green2_angle_135_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_green2_angle_135_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_green2_angle_135_30.png  used on input line 230.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [17
+
+ <../utils/results/msd_surfaces/msd_surface_green2_angle_135_30.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_green2_angle_180_45.png, id=142, 366.168pt x 302.5704pt>
+File: ../utils/results/msd_surfaces/msd_surface_green2_angle_180_45.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_green2_angle_180_45.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_green2_angle_180_45.png  used on input line 237.
+(pdftex.def)             Requested size: 328.82707pt x 271.71988pt.
+ [18
+
+ <../utils/results/msd_surfaces/msd_surface_green2_angle_180_45.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_blue_angle_135_30.png, id=148, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_blue_angle_135_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_blue_angle_135_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_blue_angle_135_30.png  used on input line 245.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [19
+
+ <../utils/results/msd_surfaces/msd_surface_blue_angle_135_30.png (PNG copy)>]
+<../utils/results/msd_surfaces/msd_surface_blue_angle_225_30.png, id=156, 379.6584pt x 285.7074pt>
+File: ../utils/results/msd_surfaces/msd_surface_blue_angle_225_30.png Graphic file (type png)
+<use ../utils/results/msd_surfaces/msd_surface_blue_angle_225_30.png>
+Package pdftex.def Info: ../utils/results/msd_surfaces/msd_surface_blue_angle_225_30.png  used on input line 252.
+(pdftex.def)             Requested size: 328.82707pt x 247.45172pt.
+ [20
+
+ <../utils/results/msd_surfaces/msd_surface_blue_angle_225_30.png (PNG copy)>] [21
+
+]
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:287: LaTeX Error: Unicode character ≈ (U+2248)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 ...nce:} relative error within tolerance (≈
+l.287 ...ce:} relative error within tolerance (≈
                                                   3.87\%).
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-LaTeX Warning: File `test/plots/cpu_gpu_diff.png' not found on input line 103.
+LaTeX Warning: File `test/plots/cpu_gpu_diff.png' not found on input line 295.
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Package pdftex.def Error: File `test/plots/cpu_gpu_diff.png' not found: using draft setting.
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:295: Package pdftex.def Error: File `test/plots/cpu_gpu_diff.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.103 ...=\textwidth]{test/plots/cpu_gpu_diff.png}
+l.295 ...=\textwidth]{test/plots/cpu_gpu_diff.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -415,7 +566,9 @@ If that doesn't work, type  X <return>  to quit.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] [5] [6] (r2.aux)
+[22
+
+] [23] [24] (r2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -431,17 +584,17 @@ Package rerunfilecheck Info: Checksums for `r2.out':
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 11438 strings out of 474486
- 184633 string characters out of 5743755
- 1936542 words of memory out of 5000000
- 33588 multiletter control sequences out of 15000+600000
+ 11619 strings out of 474486
+ 192971 string characters out of 5743755
+ 1937542 words of memory out of 5000000
+ 33715 multiletter control sequences out of 15000+600000
  564647 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,7n,79p,422b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on r2.pdf (6 pages, 165701 bytes).
+ 75i,7n,79p,422b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on r2.pdf (24 pages, 1778677 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 24 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 76 named destinations out of 1000 (max. 500000)
+ 91 words of extra memory for PDF output out of 10000 (max. 10000000)
 
