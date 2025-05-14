@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.19)  13 MAY 2025 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.7.19)  13 MAY 2025 23:52
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -267,8 +267,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 28
 File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count290
 \l__pdf_internal_box=\box53
-)
-No file r2.aux.
+) (r2.aux)
 \openout1 = `r2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
@@ -289,6 +288,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -349,614 +349,73 @@ Package hyperref Info: Link coloring OFF on input line 10.
 \@outlinefile=\write3
 \openout3 = `r2.out'.
 
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:23: Missing $ inserted.
-<inserted text> 
-                $
-l.23 ... solution over a parameter grid \$(\lambda
-                                                  , \epsilon)\$.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:24: Missing $ inserted.
-<inserted text> 
-                $
-l.24 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_combined\_offset.png' not found on input line 38.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:38: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_combined_offset.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.38 ...rfaces/msd\_surface\_combined\_offset.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
-<inserted text> 
-                $
-l.39 ...ffsets were applied to aid visualization.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
-<inserted text> 
-                $
-l.39 ...ffsets were applied to aid visualization.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
-<inserted text> 
-                $
-l.39 ...ffsets were applied to aid visualization.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:39: Missing $ inserted.
-<inserted text> 
-                $
-l.39 ...ffsets were applied to aid visualization.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:50: Missing $ inserted.
-<inserted text> 
-                $
-l.50 We computed \$\text{MSD}(f, \lambda
-                                        , \epsilon)\$ for all 4 planes and p...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:51: Missing $ inserted.
-<inserted text> 
-                $
-l.51 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (380.18933pt too wide) in paragraph at lines 50--51
-\OT1/cmr/m/n/10.95 We com-puted \TS1/cmr/m/n/10.95 $[]\OT1/cmr/m/n/10.95 (f, $\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 )$\OML/cmm/m/it/10.95 forall\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 planesandplottedtheresultingsurfacesusingMATLAB[]s[]function:Theplotsrevealclearvariationinnoisesensitivityacrosscolorchannels:$ 
- []
-
-
-LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_red.png' not found on input line 54.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:54: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_red.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.54 ...sults/msd\_surfaces/msd\_surface\_red.png}
-                                                   \\
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_green1.png' not found on input line 55.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:55: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_green1.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.55 ...ts/msd\_surfaces/msd\_surface\_green1.png}
-                                                   \\
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_green2.png' not found on input line 56.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:56: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_green2.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.56 ...ts/msd\_surfaces/msd\_surface\_green2.png}
-                                                   \\
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: File `results/msd\_surfaces/msd\_surface\_blue.png' not found on input line 57.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:57: Package pdftex.def Error: File `results/msd_surfaces/msd_surface_blue.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.57 ...ults/msd\_surfaces/msd\_surface\_blue.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
-<inserted text> 
-                $
-l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
-<inserted text> 
-                $
-l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
-<inserted text> 
-                $
-l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:58: Missing $ inserted.
-<inserted text> 
-                $
-l.58 ...ver a 20x20 \$(\lambda, \epsilon)\$ grid.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-LaTeX Warning: Float too large for page by 1173.98225pt on input line 59.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1
+ [1
 
 {C:/Users/joela/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-LaTeX Warning: File `results/test\_images/zero\_noise\_gradient.png' not found on input line 67.
+LaTeX Warning: File `report/msd_surfaces.png' not found on input line 53.
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:67: Package pdftex.def Error: File `results/test_images/zero_noise_gradient.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.67 ...ts/test\_images/zero\_noise\_gradient.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `results/test\_images/high\_noise\_sinusoidal.png' not found on input line 74.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:74: Package pdftex.def Error: File `results/test_images/high_noise_sinusoidal.png' not found: using draft setting.
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:53: Package pdftex.def Error: File `report/msd_surfaces.png' not found: using draft setting.
 
 See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.74 .../test\_images/high\_noise\_sinusoidal.png}
+l.53 ...width=\textwidth]{report/msd_surfaces.png}
                                                   
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: File `results/test_images/checkerboard_denoising.png' not found on input line 81.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:81: Package pdftex.def Error: File `results/test_images/checkerboard_denoising.png' not found: using draft setting.
-
-See the pdftex.def package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.81 ...ts/test_images/checkerboard_denoising.png}
-                                                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [2]
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:90: Missing $ inserted.
-<inserted text> 
-                $
-l.90 \item Higher \$\lambda
-                           \$ values result in overly smooth images, reducin...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+
+LaTeX Warning: File `report/rof_grid_planes_combined.png' not found on input line 66.
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Command \item invalid in math mode.
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:66: Package pdftex.def Error: File `report/rof_grid_planes_combined.png' not found: using draft setting.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.91 \item
-           Low \$\epsilon\$ values tend to produce sharper gradients but are...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+l.66 ...idth]{report/rof_grid_planes_combined.png}
                                                   
-l.91 \item L
-            ow \$\epsilon\$ values tend to produce sharper gradients but are...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:91: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.91 \item L
-            ow \$\epsilon\$ values tend to produce sharper gradients but are...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.92 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.92 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.92 \end{itemize}
-                  
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:92: Missing $ inserted.
-<inserted text> 
-                $
-l.92 \end{itemize}
-                  
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (363.93692pt too wide) in paragraph at lines 90--93
-[]\OT1/cmr/m/n/10.95 Higher \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 valuesresultinoverlysmoothimages; reducingMSDbutalsopossiblyremovingfinedetail:Low\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 ^^O\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 valuestendtoproducesharpergradientsbutaremoresensitivetonoise:$ 
- []
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:94: Missing $ inserted.
-<inserted text> 
-                $
-l.94 ...: a balanced regularization (mid \$\lambda
-                                                  , \epsilon\$) yields minim...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:95: Missing $ inserted.
-<inserted text> 
-                $
-l.95 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-Overfull \hbox (227.8281pt too wide) in paragraph at lines 94--95
-[]\OT1/cmr/m/n/10.95 This anal-y-sis in-forms fu-ture im-age de-nois-ing work-flows: a bal-anced reg-u-lar-iza-tion (mid \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 $)\OML/cmm/m/it/10.95 yieldsminimalnoisewithoutsacrificingstructure:$ 
- []
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:101: Missing $ inserted.
-<inserted text> 
-                $
-l.101 .... Computes smoothed image over \$(\lambda
-                                                  , \epsilon)\$ grid.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.102 \item
-            \texttt{calculate\_msd.m} -- Computes Mean Square Difference bet...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.102 \item \texttt
-                   {calculate\_msd.m} -- Computes Mean Square Difference bet...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:102: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.102 \item \texttt
-                   {calculate\_msd.m} -- Computes Mean Square Difference bet...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.103 \item
-            \texttt{cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Missing $ inserted.
-<inserted text> 
-                $
-l.103 \item \texttt
-                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Missing } inserted.
-<inserted text> 
-                }
-l.103 \item \texttt
-                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (123.0616pt too wide) in paragraph at lines 101--103
-\OT1/cmr/m/n/10.95 im-age over \TS1/cmr/m/n/10.95 $\OT1/cmr/m/n/10.95 ($\OML/cmm/m/it/10.95 ^^U; ^^O\OT1/cmr/m/n/10.95 )$\OML/cmm/m/it/10.95 grid:[] \OMS/cmsy/m/n/10.95 ^^@ ^^@\OML/cmm/m/it/10.95 ComputesMeanSquareDifferencebetweenoriginalandsmoothedimages:[][]$ 
- []
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.103 \item \texttt
-                   {cpu\_plane\_sweep.m} / \texttt{gpu\_plane\_sweep.m} -- B...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:116: Missing $ inserted.
-<inserted text> 
-                $
-l.116 ...icity:} ensures MSD trends with \$\lambda
-                                                  \$ and \$\epsilon\$ follow...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.117 \item
-            \textbf{Output shape:} confirms correct dimensions when computin...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.117 \item \textbf
-                   {Output shape:} confirms correct dimensions when computin...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:117: LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.117 \item \textbf
-                   {Output shape:} confirms correct dimensions when computin...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: LaTeX Error: Command \item invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.118 \item
-            \textbf{Boundary conditions:} ensures Neumann conditions are res...
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Missing $ inserted.
-<inserted text> 
-                $
-l.118 \item \textbf
-                   {Boundary conditions:} ensures Neumann conditions are res...
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Missing } inserted.
-<inserted text> 
-                }
-l.118 \item \textbf
-                   {Boundary conditions:} ensures Neumann conditions are res...
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Overfull \hbox (317.82823pt too wide) in paragraph at lines 116--118
-[]\OT1/cmr/bx/n/10.95 Monotonicity: \OT1/cmr/m/n/10.95 en-sures MSD trends with \TS1/cmr/m/n/10.95 $$\OML/cmm/m/it/10.95 ^^U\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 and\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 ^^O\OT1/cmr/m/n/10.95 $\OML/cmm/m/it/10.95 followexpectedbehavior:[]confirmscorrectdimensionswhencomputinga\OT1/cmr/m/n/10.95 4\OML/cmm/m/it/10.95 Dparametergrid:[][]$ 
- []
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:118: Extra }, or forgotten \endgroup.
-\par ...m \@noitemerr {\@@par }\fi \else {\@@par }
-                                                  \fi 
-l.118 \item \textbf
-                   {Boundary conditions:} ensures Neumann conditions are res...
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
 
 [3]
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:130: LaTeX Error: Environment lstlisting undefined.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.130 \begin{lstlisting}
-                        \[language=matlab,caption={All tests runner}]
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:139: LaTeX Error: Unicode character ✅ (U+2705)
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:95: LaTeX Error: Unicode character ≈ (U+2248)
                not set up for use with LaTeX.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.139 disp('✅
-                All tests completed');
+l.95 ...nce:} relative error within tolerance (≈
+                                                  3.87\%).
 You may provide a definition with
 \DeclareUnicodeCharacter 
 
 
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: LaTeX Error: \begin{equation*} on input line 130 ended by \end{lstlisting}.
+LaTeX Warning: File `test/plots/cpu_gpu_diff.png' not found on input line 103.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+
+c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:103: Package pdftex.def Error: File `test/plots/cpu_gpu_diff.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.140 \end{lstlisting}
-                      
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: Missing $ inserted.
-<inserted text> 
-                $
-l.140 \end{lstlisting}
-                      
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-c:/Users/joela/OneDrive/Documents/GitHub/Image-RestorationROF/report/r2.tex:140: Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.140 \end{lstlisting}
-                      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
+l.103 ...=\textwidth]{test/plots/cpu_gpu_diff.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (1233.37994pt too wide) detected at line 140
-\OML/cmm/m/it/10.95 language \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 matlab; caption \OT1/cmr/m/n/10.95 = []]\OML/cmm/m/it/10.95 disp\OT1/cmr/m/n/10.95 ([]=== \OML/cmm/m/it/10.95 ROFTestLog \OT1/cmr/m/n/10.95 ===[]); \OML/cmm/m/it/10.95 test[]zero[]noise\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]high[]noise[]recovery\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]msd[]monotonic[]lambda\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]output[]shape\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]boundary[]conditions\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]numerical[]stability\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]gpu[]fallback\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]batch[]speedup\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]visual[]check\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]msd[]surface[]plot\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 test[]cpu[]gpu[]equivalence\OT1/cmr/m/n/10.95 ; \OML/cmm/m/it/10.95 disp\OT1/cmr/m/n/10.95 ([]\OML/cmm/m/it/10.95 Alltestscompleted[]\OT1/cmr/m/n/10.95 );
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4] [5] [6] [7] [8] (r2.aux)
+[4] [5] [6] (r2.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -969,24 +428,20 @@ Package rerunfilecheck Warning: File `r2.out' has changed.
 
 Package rerunfilecheck Info: Checksums for `r2.out':
 (rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  066A2BF4FFC4BD813765A53324D3BB22;2360.
- )
-(\end occurred inside a group at level 1)
-
-### semi simple group (level 1) entered at line 130 (\begingroup)
-### bottom level 
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
 Here is how much of TeX's memory you used:
- 11602 strings out of 474486
- 194305 string characters out of 5743755
- 1937542 words of memory out of 5000000
- 33742 multiletter control sequences out of 15000+600000
- 565604 words of font info for 63 fonts, out of 8000000 for 9000
+ 11441 strings out of 474486
+ 184733 string characters out of 5743755
+ 1936542 words of memory out of 5000000
+ 33589 multiletter control sequences out of 15000+600000
+ 564647 words of font info for 59 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,6n,79p,332b,512s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on r2.pdf (8 pages, 185426 bytes).
+ 75i,7n,79p,422b,505s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/joela/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on r2.pdf (6 pages, 165743 bytes).
 PDF statistics:
- 135 PDF objects out of 1000 (max. 8388607)
- 31 named destinations out of 1000 (max. 500000)
+ 113 PDF objects out of 1000 (max. 8388607)
+ 24 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
