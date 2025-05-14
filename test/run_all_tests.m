@@ -35,6 +35,8 @@ testList = {
     'test_batch_speedup'
     'test_visual_check'
     'test_msd_surface_plot'
+    'test_cpu_gpu_equivalence'
+
 };
 
 results = strings(length(testList), 1);
