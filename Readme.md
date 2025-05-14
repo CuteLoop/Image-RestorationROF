@@ -19,10 +19,10 @@ You can download the complete PDF report here:
 
 1. **Model & Discretization**  
    Minimize  
-   \[
+  $$
    \mathcal{F}(u) = \int \sqrt{\epsilon^2 + |\nabla u|^2}\,dx\,dy
    + \tfrac\lambda2\int(u-f)^2\,dx\,dy
-   \]
+   $$
    with a finite‐difference scheme and Neumann boundary conditions.
 
 2. **CPU/GPU Solver**  
@@ -30,10 +30,10 @@ You can download the complete PDF report here:
    - **GPU**: `single` precision, 4D parameter stacking with `gpuArray`.
 
 3. **MSD Metric**  
-   \[
+  $$
    \text{MSD}(f,\lambda,\epsilon)
    = \sqrt{\tfrac1{HW}\sum_{i,j}(u_{i,j}-f_{i,j})^2}.
-   \]
+   $$
 
 ---
 
