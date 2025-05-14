@@ -1,5 +1,9 @@
 addpath('..');        % Adds the project root to the path
 addpath('../utils');  % (Optional) Add utilities if needed
+
+rng(42);  % or any fixed integer seed
+% Set the random seed for reproducibility
+
 disp('=== Running all ROF image restoration tests ===');
 test_zero_noise
 test_high_noise_recovery
