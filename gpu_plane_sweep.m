@@ -3,9 +3,10 @@ function msd = gpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
 g = gpuDevice; freeB = g.AvailableMemory; totalB = g.TotalMemory;
 f = gpuArray(single(fHost));
 [H,W] = size(f);
-lambda = cast(lambda(:).','single'); epsilon = cast(epsilon(:).','single');
+lambda = lambda(:).';     % ✅ No cast; GPU uses single from f
+epsilon = epsilon(:).';
 K = numel(lambda); L = numel(epsilon);
-msd = zeros(K,L,'single');
+msd = zeros(K, L, 'like', f);  % ✅ Safe
 overhead = 7; bytesPlane = H*W*4;
 blk = 32;
 while blk>1

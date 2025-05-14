@@ -36,6 +36,8 @@ testList = {
     'test_visual_check'
     'test_msd_surface_plot'
     'test_cpu_gpu_equivalence'
+    'test_precision_safety'
+    'test_gpu_precision'
 
 };
 

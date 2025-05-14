@@ -2,11 +2,12 @@ function msd = cpu_plane_sweep(fHost, lambda, epsilon, nIter, dt)
 % Memory‐adaptive CPU batching for ROF MSD
 try m=memory; freeB=m.MemAvailableAllArrays; catch freeB=4*2^30; end
 freeB=0.8*double(freeB);
-f=single(fHost); [H,W]=size(f);
+f = double(fHost);  % ✅ Preserve full precision
+[H,W]=size(f);
 lambda=lambda(:); epsilon=epsilon(:);
 K=numel(lambda); L=numel(epsilon);
-msd=zeros(K,L,'single');
-overhead=7; bytesPlane=H*W*4;
+msd = zeros(K, L, 'like', f);
+overhead=7; bytesPlane=H*W*8;
 blk=32;
 while blk>1
   tileB = overhead*bytesPlane*blk*blk + bytesPlane;
