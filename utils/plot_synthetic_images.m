@@ -25,3 +25,4 @@ function plot_synthetic_images()
         fprintf('❌ Failed to save figure: %s\n', ME.message);
     end
 end
+

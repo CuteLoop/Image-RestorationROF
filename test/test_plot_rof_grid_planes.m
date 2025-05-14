@@ -17,11 +17,8 @@ function test_plot_rof_grid_planes()
 for p = 1:4
     fprintf('📸 Grayscale for Plane %s...\n', planeNames(p));
     f = Iplanar(:,:,p);
-    outGray = fullfile(outDir, sprintf('rof_grid_plane_%s_gray.png', planeNames(p)));
-    outColor = fullfile(outDir, sprintf('rof_grid_plane_%s_color.png', planeNames(p)));
-
-    plot_rof_grid(f, outGray, planeNames(p), false);  % grayscale
-    plot_rof_grid(f, outColor, planeNames(p), true);  % colorized
+    outGray = fullfile(outDir, sprintf('rof_grid_plane_%s.png', planeNames(p)));
+    plot_rof_grid(f, outGray, planeNames(p), false);  % grayscale only
 end
 
 
