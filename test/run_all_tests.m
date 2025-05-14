@@ -1,3 +1,4 @@
+addpath('../utils'); 
 disp('=== Running all ROF image restoration tests ===');
 test_zero_noise
 test_high_noise_recovery
