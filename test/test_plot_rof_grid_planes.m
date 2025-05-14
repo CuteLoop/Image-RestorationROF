@@ -14,12 +14,16 @@ function test_plot_rof_grid_planes()
         mkdir(outDir);
     end
 
-    for p = 1:4
-        fprintf('📸 Generating ROF grid for Plane %s...\n', planeNames(p));
-        f = Iplanar(:,:,p);
-        outFile = fullfile(outDir, sprintf('rof_grid_plane_%s.png', planeNames(p)));
-        plot_rof_grid(f, outFile);
-    end
+for p = 1:4
+    fprintf('📸 Grayscale for Plane %s...\n', planeNames(p));
+    f = Iplanar(:,:,p);
+    outGray = fullfile(outDir, sprintf('rof_grid_plane_%s_gray.png', planeNames(p)));
+    outColor = fullfile(outDir, sprintf('rof_grid_plane_%s_color.png', planeNames(p)));
+
+    plot_rof_grid(f, outGray, planeNames(p), false);  % grayscale
+    plot_rof_grid(f, outColor, planeNames(p), true);  % colorized
+end
+
 
     fprintf('✅ All 4 ROF grid images saved to %s/\n', outDir);
 end
