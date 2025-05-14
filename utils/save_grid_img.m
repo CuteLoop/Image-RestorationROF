@@ -1,3 +1,5 @@
+addpath('../')
+
 outputDir = 'results/test_grid_5x5';
 if ~exist(outputDir, 'dir')
     mkdir(outputDir);
@@ -46,5 +48,5 @@ for t = 1:length(types)
     exportgraphics(fig, fullfile(outputDir, filename), ...
         'Resolution', 150, 'BackgroundColor', 'white');
     close(fig);
-    fprintf('✅ Saved: %s\n', fullfile(outputDir, filename));
+    fprintf(' Saved: %s\n', fullfile(outputDir, filename));
 end
