@@ -1,12 +1,11 @@
-function test_plot_rof_grid_planes(Iplanar)
-% TEST_PLOT_ROF_GRID_PLANES Generates ROF grids for each Bayer plane
-%
-% Usage:
-%   Iplanar = raw2planar(rawread('images/DSC00099.ARW'));
-%   test_plot_rof_grid_planes(Iplanar);
+function test_plot_rof_grid_planes()
+% TEST_PLOT_ROF_GRID_PLANES Self-contained test to generate ROF grid for each Bayer plane
 
-    assert(size(Iplanar,3) == 4, 'Expected 4 Bayer planes (R, G1, G2, B)');
+    rawFile = './images/DSC00099.ARW';
+    fprintf('📥 Reading raw image: %s\n', rawFile);
 
+    cfa = rawread(rawFile);
+    Iplanar = raw2planar(cfa);
     planeNames = ["R", "G1", "G2", "B"];
 
     outDir = 'results';
