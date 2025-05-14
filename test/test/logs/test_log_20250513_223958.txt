@@ -1,0 +1,39 @@
+=== ROF Image Restoration Test Log (20250513_223958) ===
+
+[PASS] test_zero_noise_constant_loose
+[PASS] test_zero_noise_constant_strict
+[PASS] test_zero_noise_gradient
+[PASS] test_msd_monotonic_lambda
+[PASS] test_msd_monotonic_epsilon
+[PASS] test_high_noise_recovery
+[PASS] test_monotonic_lambda
+[PASS] test_output_shape
+[PASS] test_boundary_conditions
+[PASS] test_numerical_stability
+[PASS] test_gpu_fallback
+[PASS] test_batch_speedup
+[PASS] test_visual_check
+[PASS] test_msd_surface_plot
+[FAIL] test_cpu_gpu_equivalence
+  Mismatch between CPU and GPU output (rel error = 1.38e+00)
+[PASS] test_precision_safety
+[PASS] test_gpu_precision
+
+=== Summary ===
+test_zero_noise_constant_loose      ✅ PASS
+test_zero_noise_constant_strict     ✅ PASS
+test_zero_noise_gradient            ✅ PASS
+test_msd_monotonic_lambda           ✅ PASS
+test_msd_monotonic_epsilon          ✅ PASS
+test_high_noise_recovery            ✅ PASS
+test_monotonic_lambda               ✅ PASS
+test_output_shape                   ✅ PASS
+test_boundary_conditions            ✅ PASS
+test_numerical_stability            ✅ PASS
+test_gpu_fallback                   ✅ PASS
+test_batch_speedup                  
+test_visual_check                   ✅ PASS
+test_msd_surface_plot               ✅ PASS
+test_cpu_gpu_equivalence            ❌ FAIL
+test_precision_safety               ✅ PASS
+test_gpu_precision                  ✅ PASS

@@ -1,4 +1,4 @@
-load('rof_results_singlepool.mat');
+load('../rof_results_singlepool.mat');
 colors = {'r', 'g', 'c', 'b'};
 labels = {'Red', 'Green1', 'Green2', 'Blue'};
 offsets = [0.00, 0.03, 0.06, 0.09];  % optional vertical offsets

@@ -1,0 +1,13 @@
+=== ROF Image Restoration Test Log (20250513_225531) ===
+
+[PASS] test_zero_noise_constant_loose
+[PASS] test_zero_noise_constant_strict
+[PASS] test_zero_noise_gradient
+[PASS] test_msd_monotonic_lambda
+[PASS] test_msd_monotonic_epsilon
+[PASS] test_high_noise_recovery
+[PASS] test_monotonic_lambda
+[PASS] test_output_shape
+[PASS] test_boundary_conditions
+[PASS] test_numerical_stability
+[PASS] test_gpu_fallback
