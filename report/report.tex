@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, graphicx, xcolor, caption}
+\usepackage{hyperref}
+
+\title{Image Restoration using the ROF Model}
+\author{Joel Maldonado}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Objective}
+This report explores image denoising using the Rudin–Osher–Fatemi (ROF) model. We apply the model to color planes of a Bayer-mosaic image and analyze noise levels through Mean Square Difference (MSD) statistics.
+
+\section*{Method}
+We solve the ROF model:
+\[
+\mathcal{F}(u) = \int \sqrt{\epsilon^2 + |\nabla u|^2} + \frac{\lambda}{2} \int (u - f)^2 \, dx\,dy
+\]
+using a vectorized iterative scheme implemented in MATLAB. The solver adapts to CPU or GPU hardware and computes the solution over a parameter grid $(\lambda, \epsilon)$.
+
+MSD is defined as:
+\[
+\text{MSD}(f, \lambda, \epsilon) = \sqrt{\frac{1}{HW} \sum_{i,j} (u_{i,j} - f_{i,j})^2}
+\]
+where \( u \) is the denoised output.
+
+\section*{Results}
+The following figure shows MSD surfaces for R, G1, G2, and B planes.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.95\textwidth]{msd_surfaces.png}
+    \caption{MSD surfaces across $(\lambda, \epsilon)$ for each color plane. Offsets were applied to aid visualization.}
+\end{figure}
+
+\subsection*{Observations}
+\begin{itemize}
+  \item Green planes (G1, G2) consistently had lower MSD, indicating less noise.
+  \item Blue showed the highest noise, followed by red.
+  \item This aligns with the Bayer mosaic design: two green sensors increase spatial luminance resolution.
+\end{itemize}
+
+\section*{Discussion}
+The ROF model effectively separates noise from signal. Higher values of $\lambda$ enforce more smoothing, while $\epsilon$ stabilizes the gradient flow near flat regions. GPU batching was used to compute MSD over a grid efficiently.
+
+\section*{Conclusion}
+ROF is a robust model for image denoising. We confirmed expected noise behavior across channels, and the vectorized approach scales well for parameter exploration.
+
+\end{document}
