@@ -1,8 +1,8 @@
 function tf = rof_config()
-% If a test override flag is set, obey it; otherwise default to true.
-if isappdata(0,'rof_test_useGPU_override')
-    tf = getappdata(0,'rof_test_useGPU_override');
+%ROF_CONFIG  Master switch for GPU usage (overridable in tests)
+if isappdata(0,'rof_overrideGPU')
+    tf = getappdata(0,'rof_overrideGPU');
 else
-    tf = true;    % ← your project default (set to false if you prefer)
+    tf = true;
 end
 end
